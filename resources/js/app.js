@@ -6,7 +6,11 @@
 
 require('./bootstrap');
 
+import VueGoodTablePlugin from 'vue-good-table';
+import 'vue-good-table/dist/vue-good-table.css'
+
 window.Vue = require('vue').default;
+
 
 /**
  * The following block of code may be used to automatically register your
@@ -21,13 +25,17 @@ window.Vue = require('vue').default;
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('catalogo-vehiculo-component', require('./components/CatalogoVehiculoComponent.vue').default);
+Vue.component('clientes-component', require('./components/ClientesComponent.vue').default);
+Vue.component('cliente-card-component', require('./components/ClienteCardComponent.vue').default);
+Vue.component('usuarios-cliente-component', require('./components/UsuariosCliente.vue').default);
+Vue.component('pacientes-component', require('./components/PacientesComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
+Vue.use(VueGoodTablePlugin);
 const app = new Vue({
     el: '#app',
 });

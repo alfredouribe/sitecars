@@ -5,9 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="card-header">{{ __('Login') }}
 
-                <div class="card-body">
+                </div>
+
+                <div class="card-body loginForm loginAdmin">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -39,7 +41,7 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
+                        <div class="row mb-3" style="display:none">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -66,8 +68,15 @@
                         </div>
                     </form>
                 </div>
+
             </div>
         </div>
     </div>
 </div>
+
+
+@push('scripts')
+
+@endpush
+
 @endsection

@@ -10,7 +10,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Dental Care Admin</title>
 
 
     <!-- Scripts -->
@@ -25,13 +25,14 @@
 
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="assets/back/css/styles.css" rel="stylesheet" />
+
 </head>
 <body class="sb-nav-fixed">
     <div id="app">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark" style="display: none">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    Dental Care Admin
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -86,7 +87,7 @@
 
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark" style="display: none1">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">Start Bootstrap</a>
+            <a class="navbar-brand ps-3" href="/index">Dental Care Admin</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
@@ -120,21 +121,39 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <div class="sb-sidenav-menu-heading">Core</div>
+
+                            <div class="sb-sidenav-menu-heading">Administradores</div>
+                            <a class="nav-link" href="/clientes">
+                                <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                                Clientes
+                            </a>
+
+                            
+                            <div class="sb-sidenav-menu-heading">Clientes</div>
                             <a class="nav-link" href="/index">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Dashboard
+                                Inicio
                             </a>
-                            <div class="sb-sidenav-menu-heading">Configuración</div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+
+                            <a class="nav-link" href="/c-usuarios">
+                                <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                                Usuarios
+                            </a>
+
+                            <a class="nav-link" href="/c-pacientes">
+                                <div class="sb-nav-link-icon"><i class="fa fa-user-plus"></i></div>
+                                Pacientes
+                            </a>
+                            
+                            <!--<a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Catálogos
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="/catalogo-vehiculo">Catálogo de Tipo de Vehículos</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+                                    <a class="nav-link" href="/clientes">Clientes</a>
+
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
@@ -177,9 +196,10 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Tables
                             </a>
+                            -->
                         </div>
                     </div>
-                    <div class="sb-sidenav-footer">
+                    <div class="sb-sidenav-footer" style="display: none">
                         <div class="small">Logged in as:</div>
                         Start Bootstrap
                     </div>
@@ -194,11 +214,11 @@
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2022</div>
+                            <div class="text-muted">Dental Care Admin &copy; 2023</div>
                             <div>
-                                <a href="#">Privacy Policy</a>
+                                <a href="#">Política de Privacidad</a>
                                 &middot;
-                                <a href="#">Terms &amp; Conditions</a>
+                                <a href="#">Términos &amp; Condiciones</a>
                             </div>
                         </div>
                     </div>
@@ -207,9 +227,12 @@
         </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
     <script src="assets/back/js/scripts.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
     <script src="assets/back/js/datatables-simple-demo.js"></script>
+
+    @stack('scripts')
 </body>
 </html>
