@@ -14,11 +14,12 @@
                 </span>
 
                 <span v-else-if="props.column.field == 'opciones'">
-                    <span style="cursor: pointer" class="text-info" @click="get_cliente(props.row)"><i class="fa fa-pencil"></i> Editar</span>
-                    <button type="button" class="btn btn-danger" v-if="props.row.activo" @click="cambiar_status_cliente(props.row.id, 0)"><i class="fa fa-trash"></i> Desactivar</button>
+                    <button type="button" class="btn btn-info" @click="get_cliente(props.row)"><i class="fa fa-pencil"></i> Editar</button><br><hr>
+                    <button type="button" class="btn btn-danger" v-if="props.row.activo" @click="cambiar_status_cliente(props.row.id, 0)">Desactivar</button>
                     <button type="button" class="btn btn-success" v-else @click="cambiar_status_cliente(props.row.id, 1)">Activar</button>
-                    <a :href="'/detalle?id=' + props.row.id"  style="text-decoration: none;" class="text-success">
-                        <span style="cursor: pointer" class="text-success"><i class="fa fa-pencil"></i> Detalle</span>
+                    <br><hr>
+                    <a :href="'/detalle?id=' + props.row.id"  style="text-decoration: none;" class="btn btn-success">
+                        <i class="fa fa-eye"></i> Detalle
                     </a>
                 </span>
 

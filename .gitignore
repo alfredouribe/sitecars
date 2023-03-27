@@ -4,6 +4,7 @@
 /public/assets
 /public/css
 /public/js
+/public/images/pacientes
 /storage/*.key
 /vendor
 .env

@@ -10,6 +10,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Paciente;
+use App\Models\PacienteDatoGeneral;
 
 
 class api extends Controller
@@ -139,5 +140,41 @@ class api extends Controller
         $paciente->foto = "";
 
         $paciente->save();
+    }
+
+    public function get_info_paciente(Request $request){
+        $id = $request->id;
+
+        $paciente = Paciente::findOrFail($id);
+
+        return $paciente;
+    }
+
+    public function get_paciente_info_general(Request $request){
+        $idPaciente = $request->idPaciente;
+        $idUsuario = $request->idUsuario;
+
+        $paciente = PacienteDatoGeneral::select('*')->where('paciente_id', '=', $idPaciente)->get();
+
+        if(!count($paciente)){
+            $paciente = new PacienteDatoGeneral;
+            $paciente->direccion = '';
+            $paciente->ocupacion = '';
+            $paciente->escolaridad = '';
+            $paciente->estado_civil = '';
+            $paciente->lugar_nacimiento = '';
+            $paciente->religion = '';
+            $paciente->tutor = '';
+            $paciente->motivo_consulta = '';
+            $paciente->paciente_id = $idPaciente;
+            $paciente->user_id = $idUsuario;
+
+            $paciente->save();
+
+            $paciente = PacienteDatoGeneral::select('*')->where('paciente_id', '=', $idPaciente)->get();
+
+        }
+
+        return $paciente[0];
     }
 }

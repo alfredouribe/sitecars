@@ -26,4 +26,5 @@ Route::get('/detalle', [App\Http\Controllers\ClienteController::class, 'cliente'
 Route::get('/c-usuarios', [App\Http\Controllers\ClienteUsuarioController::class, 'index'])->name('index');
 Route::get('/c-pacientes', [App\Http\Controllers\PacienteController::class, 'index'])->name('index');
 Route::get('/paciente', [App\Http\Controllers\PacienteController::class, 'paciente'])->name('paciente');
+Route::post('/carga-imagen-paciente', [App\Http\Controllers\PacienteController::class, 'carga_imagen_paciente'])->name('carga_imagen_paciente');
 // Route::get('/catalogo-vehiculos', [App\Http\Controllers\CatalogoVehiculoController::class, 'index'])->name('catalogo-vehiculos');

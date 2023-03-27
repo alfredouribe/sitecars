@@ -93,7 +93,31 @@ class PacienteController extends Controller
     }
 
     public function paciente(Request $request){
+        $idPaciente = $request->id;
+        $paciente = Paciente::select('*')->where('id', '=', '1')->get();
 
-        return view('back.pacientes.paciente');
+        return view('back.pacientes.paciente', compact('paciente'));
+    }
+
+    public function carga_imagen_paciente(Request $request){
+        $id = $request->id;
+
+        $imageName = time().'.'.$request->file->getClientOriginalExtension();
+        $request->file->move(public_path('images/pacientes'), $imageName);
+
+        $paciente = Paciente::findOrFail($id);
+
+        if($paciente->foto){
+            $ruta_archivo = public_path('images/pacientes/' . $paciente->foto);
+            if(file_exists($ruta_archivo)){
+                unlink($ruta_archivo);
+            }
+        }
+
+        $paciente->foto = $imageName;
+
+        $paciente->save();
+
+    	return response()->json(['success'=>'Se ha cargado la foto', 'foto' => $imageName]);
     }
 }

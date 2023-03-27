@@ -9,10 +9,11 @@
         <vue-good-table :columns="columns" :rows="pacientes" :search-options="{ enabled: true, placeholder: 'Buscar...', compactMode }">
             <template slot="table-row" slot-scope="props">
                 <span v-if="props.column.field == 'foto'">
-                    <img src="/images/male.png" v-if="props.row.sexo == 'M'" width="100px">
-                    <img src="/images/female.png" v-if="props.row.sexo == 'F'" width="100px">
-                    <img src="/images/otro.png" v-if="props.row.sexo == 'O'" width="100px">
+                    <span v-if="props.row.foto == ''">Sin foto</span>
+                    <img v-else :src="'/images/pacientes/' + props.row.foto" width="100px">
                 </span>
+
+                
 
                 <span v-else-if="props.column.field == 'opciones'">
                     <a :href="'paciente?id=' + props.row.id" type="button" class="btn btn-outline-primary"><i class="fa fa-eye"></i>Revisar</a>
@@ -151,17 +152,17 @@ import axios from 'axios';
                         label: 'Apellido Materno',
                         field: 'materno',
                     },
-                    {
-                        label: 'Sexo',
-                        field: 'sexo',
-                    },
-                    {
-                        label: 'Fecha de Nacimiento',
-                        field: 'fecha_nacimiento',
-                        type: 'date',
-                        dateInputFormat: 'yyyy-MM-dd',
-                        dateOutputFormat: 'dd-MM-yyyy',
-                    },
+                    // {
+                    //     label: 'Sexo',
+                    //     field: 'sexo',
+                    // },
+                    // {
+                    //     label: 'Fecha de Nacimiento',
+                    //     field: 'fecha_nacimiento',
+                    //     type: 'date',
+                    //     dateInputFormat: 'yyyy-MM-dd',
+                    //     dateOutputFormat: 'dd-MM-yyyy',
+                    // },
                     {
                         label: 'Teléfono',
                         field: 'telefono',

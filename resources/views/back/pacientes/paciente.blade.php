@@ -13,54 +13,9 @@
 <div class="row">
 	<!-- Column -->
 	<div class="col-lg-4 col-xlg-3 col-md-5">
-		<div class="card">
-			<div class="card-body">
-				<center class="mt-4">
-					<img src="../../assets/images/users/5.jpg" class="rounded-circle" width="150">
-					<h4 class="card-title mt-2">Hanna Gover</h4>
-					<h6 class="card-subtitle">Accoubts Manager Amix corp</h6>
-					<div class="row text-center justify-content-md-center">
-						<div class="col-4">
-							<a href="javascript:void(0)" class="link">
-								<i class="icon-people"></i>
-								<font class="font-weight-medium">254</font>
-							</a>
-						</div>
-						<div class="col-4">
-							<a href="javascript:void(0)" class="link">
-								<i class="icon-picture"></i>
-								<font class="font-weight-medium">54</font>
-							</a>
-						</div>
-					</div>
-				</center>
-			</div>
-			<div>
-				<hr>
-			</div>
-			<div class="card-body">
-				<small class="text-muted">Email address </small>
-				<h6>hannagover@gmail.com</h6>
-				<small class="text-muted pt-4 db">Phone</small>
-				<h6>+91 654 784 547</h6>
-				<small class="text-muted pt-4 db">Address</small>
-				<h6>71 Pilgrim Avenue Chevy Chase, MD 20815</h6>
-				<div class="map-box">
-					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d470029.1604841957!2d72.29955005258641!3d23.019996818380896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e848aba5bd449%3A0x4fcedd11614f6516!2sAhmedabad%2C+Gujarat!5e0!3m2!1sen!2sin!4v1493204785508" width="100%" height="150" frameborder="0" style="border: 0" allowfullscreen=""></iframe>
-				</div>
-				<small class="text-muted pt-4 db">Social Profile</small>
-				<br>
-				<button class="btn btn-circle btn-secondary">
-					<i class="fab fa-facebook-f"></i>
-				</button>
-				<button class="btn btn-circle btn-secondary">
-					<i class="fab fa-twitter"></i>
-				</button>
-				<button class="btn btn-circle btn-secondary">
-					<i class="fab fa-youtube"></i>
-				</button>
-			</div>
-		</div>
+
+		<card-paciente-component id='{{ $paciente[0]->id}}' idusuario='{{Auth::user()->id}}'></card-paciente-component>
+					
 	</div>
 	<!-- Column -->
 	<!-- Column -->
@@ -69,111 +24,28 @@
 			<!-- Tabs -->
 			<ul class="nav nav-pills custom-pills" id="pills-tab" role="tablist">
 				<li class="nav-item" role="presentation">
-					<a class="nav-link active" id="pills-timeline-tab" data-bs-toggle="pill" href="#current-month" role="tab" aria-controls="pills-timeline" aria-selected="true">Timeline</a>
+					<a class="nav-link active" id="pills-timeline-tab" data-bs-toggle="pill" href="#current-month" role="tab" aria-controls="pills-timeline" aria-selected="true">Información General</a>
 				</li>
 				<li class="nav-item" role="presentation">
-					<a class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" href="#last-month" role="tab" aria-controls="pills-profile" aria-selected="false" tabindex="-1">Profile</a>
+					<a class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" href="#last-month" role="tab" aria-controls="pills-profile" aria-selected="false" tabindex="-1">Antecedentes</a>
 				</li>
 				<li class="nav-item" role="presentation">
-					<a class="nav-link" id="pills-setting-tab" data-bs-toggle="pill" href="#previous-month" role="tab" aria-controls="pills-setting" aria-selected="false" tabindex="-1">Setting</a>
+					<a class="nav-link" id="pills-setting-tab" data-bs-toggle="pill" href="#previous-month" role="tab" aria-controls="pills-setting" aria-selected="false" tabindex="-1">Odontograma</a>
+				</li>
+				<li class="nav-item" role="presentation">
+					<a class="nav-link" id="pills-setting-tab" data-bs-toggle="pill" href="#previous-month" role="tab" aria-controls="pills-setting" aria-selected="false" tabindex="-1">Endodoncia</a>
+				</li>
+				<li class="nav-item" role="presentation">
+					<a class="nav-link" id="pills-setting-tab" data-bs-toggle="pill" href="#previous-month" role="tab" aria-controls="pills-setting" aria-selected="false" tabindex="-1">Tratamientos</a>
+				</li>
+				<li class="nav-item" role="presentation">
+					<a class="nav-link" id="pills-setting-tab" data-bs-toggle="pill" href="#previous-month" role="tab" aria-controls="pills-setting" aria-selected="false" tabindex="-1">Citas</a>
 				</li>
 			</ul>
 			<!-- Tabs -->
 			<div class="tab-content" id="pills-tabContent">
 				<div class="tab-pane fade active show" id="current-month" role="tabpanel" aria-labelledby="pills-timeline-tab">
-					<div class="card-body">
-						<div class="profiletimeline mt-0">
-							<div class="sl-item d-flex align-items-start">
-								<div class="sl-left">
-									<img src="../../assets/images/users/1.jpg" alt="user" class="rounded-circle">
-								</div>
-								<div class="sl-right">
-									<div>
-										<a href="javascript:void(0)" class="link">John Doe</a>
-										<span class="sl-date">5 minutes ago</span>
-										<p> assign a new task <a href="javascript:void(0)"> Design weblayout</a>
-										</p>
-										<div class="row">
-											<div class="col-lg-3 col-md-6 mb-3">
-												<img src="../../assets/images/big/img1.jpg" class="img-fluid rounded">
-											</div>
-											<div class="col-lg-3 col-md-6 mb-3">
-												<img src="../../assets/images/big/img2.jpg" class="img-fluid rounded">
-											</div>
-											<div class="col-lg-3 col-md-6 mb-3">
-												<img src="../../assets/images/big/img3.jpg" class="img-fluid rounded">
-											</div>
-											<div class="col-lg-3 col-md-6 mb-3">
-												<img src="../../assets/images/big/img4.jpg" class="img-fluid rounded">
-											</div>
-										</div>
-										<div class="like-comm">
-											<a href="javascript:void(0)" class="link me-2">2 comment</a>
-											<a href="javascript:void(0)" class="link me-2">
-												<i class="fa fa-heart text-danger"></i> 5 Love </a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<hr>
-							<div class="sl-item d-flex align-items-start">
-								<div class="sl-left">
-									<img src="../../assets/images/users/2.jpg" alt="user" class="rounded-circle">
-								</div>
-								<div class="sl-right">
-									<div>
-										<a href="javascript:void(0)" class="link">John Doe</a>
-										<span class="sl-date">5 minutes ago</span>
-										<div class="mt-3 row">
-											<div class="col-md-3 col-xs-12">
-												<img src="../../assets/images/big/img1.jpg" alt="user" class="img-fluid rounded">
-											</div>
-											<div class="col-md-9 col-xs-12">
-												<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. </p>
-												<a href="javascript:void(0)" class="btn btn-success"> Design weblayout</a>
-											</div>
-										</div>
-										<div class="like-comm mt-3">
-											<a href="javascript:void(0)" class="link me-2">2 comment</a>
-											<a href="javascript:void(0)" class="link me-2">
-												<i class="fa fa-heart text-danger"></i> 5 Love </a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<hr>
-							<div class="sl-item d-flex align-items-start">
-								<div class="sl-left">
-									<img src="../../assets/images/users/3.jpg" alt="user" class="rounded-circle">
-								</div>
-								<div class="sl-right">
-									<div>
-										<a href="javascript:void(0)" class="link">John Doe</a>
-										<span class="sl-date">5 minutes ago</span>
-										<p class="mt-2"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper </p>
-									</div>
-									<div class="like-comm mt-3">
-										<a href="javascript:void(0)" class="link me-2">2 comment</a>
-										<a href="javascript:void(0)" class="link me-2">
-											<i class="fa fa-heart text-danger"></i> 5 Love </a>
-									</div>
-								</div>
-							</div>
-							<hr>
-							<div class="sl-item d-flex align-items-start">
-								<div class="sl-left">
-									<img src="../../assets/images/users/4.jpg" alt="user" class="rounded-circle">
-								</div>
-								<div class="sl-right">
-									<div>
-										<a href="javascript:void(0)" class="link">John Doe</a>
-										<span class="sl-date">5 minutes ago</span>
-										<blockquote class="mt-2"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt </blockquote>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+					<paciente-general-component id='{{ $paciente[0]->id}}' idusuario='{{Auth::user()->id}}'></paciente-general-component>
 				</div>
 				<div class="tab-pane fade" id="last-month" role="tabpanel" aria-labelledby="pills-profile-tab">
 					<div class="card-body">

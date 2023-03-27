@@ -29,7 +29,8 @@ Vue.component('clientes-component', require('./components/ClientesComponent.vue'
 Vue.component('cliente-card-component', require('./components/ClienteCardComponent.vue').default);
 Vue.component('usuarios-cliente-component', require('./components/UsuariosCliente.vue').default);
 Vue.component('pacientes-component', require('./components/PacientesComponent.vue').default);
-
+Vue.component('card-paciente-component', require('./components/CardPaciente.vue').default);
+Vue.component('paciente-general-component', require('./components/PacienteInfoGeneral.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

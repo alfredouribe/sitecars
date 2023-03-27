@@ -27,4 +27,6 @@ Route::post('save_usuario_cliente',['App\Http\Controllers\api', 'save_usuario_cl
 Route::post('cambia_status_usuario_cliente',['App\Http\Controllers\api', 'cambia_status_usuario_cliente'])->name('cambia_status_usuario_cliente');
 Route::post('get_pacientes',['App\Http\Controllers\api', 'get_pacientes'])->name('get_pacientes');
 Route::post('save_paciente',['App\Http\Controllers\api', 'save_paciente'])->name('save_paciente');
+Route::post('get_info_paciente',['App\Http\Controllers\api', 'get_info_paciente'])->name('get_info_paciente');
+Route::post('get_paciente_info_general',['App\Http\Controllers\api', 'get_paciente_info_general'])->name('get_paciente_info_general');
 //cambia_status_usuario_cliente
