@@ -43,32 +43,32 @@
                     <form v-on:submit.prevent="save_paciente" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label for="nombre" class="form-label">Nombre*</label>
-                            <input type="text" class="form-control" v-model="paciente.nombre" id="nombre" required>
+                            <input type="text" class="form-control" v-model="paciente.nombre" maxlength="30" id="nombre" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="snombre" class="form-label">Segundo Nombre</label>
-                            <input type="text" class="form-control" v-model="paciente.segundo_nombre" id="snombre">
+                            <input type="text" class="form-control" v-model="paciente.segundo_nombre" maxlength="30" id="snombre">
                         </div>
 
                         <div class="mb-3">
                             <label for="paterno" class="form-label">Paterno*</label>
-                            <input type="text" class="form-control" v-model="paciente.paterno" id="paterno" required>
+                            <input type="text" class="form-control" v-model="paciente.paterno" maxlength="30" id="paterno" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="materno" class="form-label">Materno</label>
-                            <input type="text" class="form-control" v-model="paciente.materno" id="materno">
+                            <input type="text" class="form-control" v-model="paciente.materno" maxlength="30" id="materno">
                         </div>
 
                         <div class="mb-3">
                             <label for="telefono" class="form-label">Teléfono*</label>
-                            <input type="text" class="form-control" v-model="paciente.telefono" id="telefono" required>
+                            <input type="text" class="form-control" v-model="paciente.telefono" maxlength="10" id="telefono" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="email" class="form-label">Email*</label>
-                            <input type="text" class="form-control" v-model="paciente.email" id="email" required>
+                            <input type="text" class="form-control" v-model="paciente.email" maxlength="50" id="email" required>
                         </div>
 
                         <div class="mb-3">

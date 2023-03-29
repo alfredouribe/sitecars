@@ -94,7 +94,7 @@ class PacienteController extends Controller
 
     public function paciente(Request $request){
         $idPaciente = $request->id;
-        $paciente = Paciente::select('*')->where('id', '=', '1')->get();
+        $paciente = Paciente::select('*')->where('id', '=', $idPaciente)->get();
 
         return view('back.pacientes.paciente', compact('paciente'));
     }

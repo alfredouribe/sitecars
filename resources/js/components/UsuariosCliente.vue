@@ -36,17 +36,17 @@
                     <form v-on:submit.prevent="save_usuario_cliente">
                         <div class="mb-3">
                             <label for="nombre" class="form-label">Nombre*</label>
-                            <input type="text" class="form-control" v-model="usuario.nombres" id="nombre" required>
+                            <input type="text" class="form-control" v-model="usuario.nombres" maxlength="191" id="nombre" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="email" class="form-label">Email*</label>
-                            <input type="text" class="form-control" v-model="usuario.email" id="email" required>
+                            <input type="text" class="form-control" v-model="usuario.email" maxlength="191" id="email" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="password" class="form-label">Password*</label>
-                            <input type="password" class="form-control" v-model="usuario.password" id="password" required>
+                            <input type="password" class="form-control" v-model="usuario.password" maxlength="191" id="password" required>
                         </div>
 
 

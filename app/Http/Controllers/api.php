@@ -40,8 +40,7 @@ class api extends Controller
     
             $cliente->save();
         }else{
-            $cliente = request()->except(['_token', '_method']);;
-
+            $cliente = request()->except(['_token', '_method']);
 
             Cliente::where('id', '=', $request->id)->update($cliente);
         }
@@ -155,7 +154,7 @@ class api extends Controller
         $idUsuario = $request->idUsuario;
 
         $paciente = PacienteDatoGeneral::select('*')->where('paciente_id', '=', $idPaciente)->get();
-
+        //si no tiene el registro entonces lo genera
         if(!count($paciente)){
             $paciente = new PacienteDatoGeneral;
             $paciente->direccion = '';
@@ -176,5 +175,19 @@ class api extends Controller
         }
 
         return $paciente[0];
+    }
+
+    public function update_paciente(Request $request){
+        $paciente = request()->except(['_token', '_method']);
+        $paciente['segundo_nombre'] = $paciente['segundo_nombre'] ? $paciente['segundo_nombre'] : '';
+        $paciente['materno'] = $paciente['materno'] ? $paciente['materno'] : '';
+        Paciente::where('id', '=', $request->id)->update($paciente);
+
+    }
+
+    public function save_info_general_paciente(Request $request){
+        $info_general = request()->except(['_token', '_method']);
+        $info_general['tutor'] = $info_general['tutor'] ? $info_general['tutor'] : '';
+        PacienteDatoGeneral::where('id', '=', $request->id)->update($info_general);
     }
 }
