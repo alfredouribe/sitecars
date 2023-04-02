@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\Paciente;
 use App\Models\PacienteDatoGeneral;
 use App\Models\AntecedentePatologicoHeredoFamiliar;
+use App\Models\AntecedentePatologicoPersonal;
+use App\Models\AntecedentePersonalNoPatologico;
 
 
 class api extends Controller
@@ -241,5 +243,96 @@ class api extends Controller
     public function save_heredofamiliar(Request $request){
         $info = request()->except(['_token', '_method']);
         AntecedentePatologicoHeredoFamiliar::where('id', '=', $request->id)->update($info);
+    }
+
+    public function get_antecedente_patologico_personales(Request $request){
+        $idPaciente = $request->idPaciente;
+        $idUsuario = $request->idUsuario;
+
+        $paciente = AntecedentePatologicoPersonal::select('*')->where('paciente_id', '=', $idPaciente)->get();
+        //si no tiene el registro entonces lo genera
+        if(!count($paciente)){
+            $paciente = new AntecedentePatologicoPersonal;
+
+            $paciente->paciente_id = $idPaciente;
+            $paciente->user_id = $idUsuario;
+            $paciente->diabetes = null;
+            $paciente->hipertension = null;
+            $paciente->hipotension = null;
+            $paciente->cardiopatias = null;
+            $paciente->cancer = null;
+            $paciente->hemofilia = null;
+            $paciente->hepatitis = null;
+            $paciente->amigdalitis = null;
+            $paciente->vih = null;
+            $paciente->convulsiones = null;
+            $paciente->asma = null;
+            $paciente->anemia = null;
+            $paciente->tosferina = null;
+            $paciente->artritis = null;
+            $paciente->varicela = null;
+            $paciente->rubeola = null;
+            $paciente->sarampion = null;
+            $paciente->fiebre = null;
+            $paciente->tuberculosis = null;
+            $paciente->observaciones = null;
+
+            $paciente->save();
+
+            $paciente = AntecedentePatologicoPersonal::select('*')->where('paciente_id', '=', $idPaciente)->get();
+
+        }
+
+        return $paciente[0];
+    }
+
+    public function save_personal(Request $request){
+        $info = request()->except(['_token', '_method']);
+        AntecedentePatologicoPersonal::where('id', '=', $request->id)->update($info);
+    }
+
+    public function get_antecedente_personal_no_patologico(Request $request){
+        $idPaciente = $request->idPaciente;
+        $idUsuario = $request->idUsuario;
+
+        $paciente = AntecedentePersonalNoPatologico::select('*')->where('paciente_id', '=', $idPaciente)->get();
+        //si no tiene el registro entonces lo genera
+        if(!count($paciente)){
+            $paciente = new AntecedentePersonalNoPatologico;
+
+            $paciente->paciente_id = $idPaciente;
+            $paciente->user_id = $idUsuario;
+            $paciente->frecuencia_cepillado = null;
+            $paciente->hilo_dental = null;
+            $paciente->medicamento = null;
+            $paciente->medicamento_descripcion = null;
+            $paciente->tratamiento_medico = null;
+            $paciente->operacion = null;
+            $paciente->operacion_descripcion = null;
+            $paciente->transferencia_sangre = null;
+            $paciente->consumo_drogas = null;
+            $paciente->tabaquismo = null;
+            $paciente->alcoholismo = null;
+            $paciente->tatuajes = null;
+            $paciente->embarazo = null;
+            $paciente->embarazo_meses = null;
+            $paciente->alergias = null;
+            $paciente->alergias_descripcion = null;
+            $paciente->vacunas = null;
+            $paciente->vacunas_faltantes = null;
+            $paciente->alergias_anestesico = null;
+
+            $paciente->save();
+
+            $paciente = AntecedentePersonalNoPatologico::select('*')->where('paciente_id', '=', $idPaciente)->get();
+
+        }
+
+        return $paciente[0];
+    }
+
+    public function save_personal_no_patologico(Request $request){
+        $info = request()->except(['_token', '_method']);
+        AntecedentePersonalNoPatologico::where('id', '=', $request->id)->update($info);
     }
 }

@@ -24,10 +24,10 @@
 			<!-- Tabs -->
 			<ul class="nav nav-pills custom-pills" id="pills-tab" role="tablist">
 				<li class="nav-item" role="presentation">
-					<a class="nav-link active" id="pills-timeline-tab" data-bs-toggle="pill" href="#current-month" role="tab" aria-controls="pills-timeline" aria-selected="true">Información General</a>
+					<a class="nav-link active" id="pills-timeline-tab" data-bs-toggle="pill" href="#info_general" role="tab" aria-controls="pills-timeline" aria-selected="true">Información General</a>
 				</li>
 				<li class="nav-item" role="presentation">
-					<a class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" href="#last-month" role="tab" aria-controls="pills-profile" aria-selected="false" tabindex="-1">Antecedentes</a>
+					<a class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" href="#antecedentes" role="tab" aria-controls="pills-profile" aria-selected="false" tabindex="-1">Antecedentes</a>
 				</li>
 				<li class="nav-item" role="presentation">
 					<a class="nav-link" id="pills-setting-tab" data-bs-toggle="pill" href="#previous-month" role="tab" aria-controls="pills-setting" aria-selected="false" tabindex="-1">Odontograma</a>
@@ -44,11 +44,15 @@
 			</ul>
 			<!-- Tabs -->
 			<div class="tab-content" id="pills-tabContent">
-				<div class="tab-pane fade active show" id="current-month" role="tabpanel" aria-labelledby="pills-timeline-tab">
+				<div class="tab-pane fade active show" id="info_general" role="tabpanel" aria-labelledby="pills-timeline-tab">
 					<paciente-general-component id='{{ $paciente[0]->id}}' idusuario='{{Auth::user()->id}}'></paciente-general-component>
 				</div>
-				<div class="tab-pane fade" id="last-month" role="tabpanel" aria-labelledby="pills-profile-tab">
+				<div class="tab-pane fade" id="antecedentes" role="tabpanel" aria-labelledby="pills-profile-tab">
 					<antecedente-patologico-heredofamiliar id='{{ $paciente[0]->id}}' idusuario='{{Auth::user()->id}}'></antecedente-patologico-heredofamiliar>
+					<hr>
+					<antecedente-patologico-personal id='{{ $paciente[0]->id}}' idusuario='{{Auth::user()->id}}'></antecedente-patologico-personal>
+					<hr>
+					<antecedente-personal-no-patologico id='{{ $paciente[0]->id}}' idusuario='{{Auth::user()->id}}'></antecedente-personal-no-patologico>
 				</div>
 				<div class="tab-pane fade" id="previous-month" role="tabpanel" aria-labelledby="pills-setting-tab">
 					<div class="card-body">

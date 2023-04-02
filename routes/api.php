@@ -33,4 +33,8 @@ Route::post('update_paciente',['App\Http\Controllers\api', 'update_paciente'])->
 Route::post('save_info_general_paciente',['App\Http\Controllers\api', 'save_info_general_paciente'])->name('save_info_general_paciente');
 Route::post('get_antecedente_patologico_heredofamiliares',['App\Http\Controllers\api', 'get_antecedente_patologico_heredofamiliares'])->name('get_antecedente_patologico_heredofamiliares');
 Route::post('save_heredofamiliar',['App\Http\Controllers\api', 'save_heredofamiliar'])->name('save_heredofamiliar');
+Route::post('get_antecedente_patologico_personales',['App\Http\Controllers\api', 'get_antecedente_patologico_personales'])->name('get_antecedente_patologico_personales');
+Route::post('save_personal',['App\Http\Controllers\api', 'save_personal'])->name('save_personal');
+Route::post('get_antecedente_personal_no_patologico',['App\Http\Controllers\api', 'get_antecedente_personal_no_patologico'])->name('get_antecedente_personal_no_patologico');
+Route::post('save_personal_no_patologico',['App\Http\Controllers\api', 'save_personal_no_patologico'])->name('save_personal_no_patologico');
 //cambia_status_usuario_cliente update_paciente

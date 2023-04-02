@@ -5551,6 +5551,574 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/APatologicoPersonal.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/APatologicoPersonal.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {},
+  props: {
+    id: 0,
+    idusuario: 0
+  },
+  data: function data() {
+    return {
+      antecedente_patologico_personal: {
+        id: '',
+        diabetes: '',
+        hipertension: '',
+        hipotension: '',
+        cardiopatias: '',
+        cancer: '',
+        hemofilia: '',
+        hepatitis: '',
+        amigdalitis: '',
+        vih: '',
+        convulsiones: '',
+        asma: '',
+        anemia: '',
+        tosferina: '',
+        artritis: '',
+        varicela: '',
+        rubeola: '',
+        sarampion: '',
+        fiebre: '',
+        tuberculosis: '',
+        observaciones: '',
+        paciente_id: '',
+        user_id: '',
+        created_at: '',
+        updated_at: ''
+      }
+    };
+  },
+  methods: {
+    get_antecedente_patologico_personales: function get_antecedente_patologico_personales() {
+      var _this = this;
+
+      var params = {
+        idPaciente: this.id,
+        idUsuario: this.idusuario
+      };
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post("/api/get_antecedente_patologico_personales", params).then(function (res) {
+        _this.antecedente_patologico_personal = res.data;
+      });
+    },
+    save_personal: function save_personal() {
+      var _this2 = this;
+
+      var params = {
+        id: this.antecedente_patologico_personal.id,
+        diabetes: this.antecedente_patologico_personal.diabetes,
+        hipertension: this.antecedente_patologico_personal.hipertension,
+        hipotension: this.antecedente_patologico_personal.hipotension,
+        cardiopatias: this.antecedente_patologico_personal.cardiopatias,
+        cancer: this.antecedente_patologico_personal.cancer,
+        hemofilia: this.antecedente_patologico_personal.hemofilia,
+        hepatitis: this.antecedente_patologico_personal.hepatitis,
+        amigdalitis: this.antecedente_patologico_personal.amigdalitis,
+        vih: this.antecedente_patologico_personal.vih,
+        convulsiones: this.antecedente_patologico_personal.convulsiones,
+        asma: this.antecedente_patologico_personal.asma,
+        anemia: this.antecedente_patologico_personal.anemia,
+        tosferina: this.antecedente_patologico_personal.tosferina,
+        artritis: this.antecedente_patologico_personal.artritis,
+        varicela: this.antecedente_patologico_personal.varicela,
+        rubeola: this.antecedente_patologico_personal.rubeola,
+        sarampion: this.antecedente_patologico_personal.sarampion,
+        fiebre: this.antecedente_patologico_personal.fiebre,
+        tuberculosis: this.antecedente_patologico_personal.tuberculosis,
+        observaciones: this.antecedente_patologico_personal.observaciones
+      };
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post("/api/save_personal", params).then(function (res) {
+        _this2.get_antecedente_patologico_personales();
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.get_antecedente_patologico_personales();
+  },
+  filters: {
+    calcularEdad: function calcularEdad(fechaNacimiento) {
+      var edad = new Date().getFullYear() - new Date(fechaNacimiento).getFullYear();
+      var diferenciaMeses = new Date().getMonth() - new Date(fechaNacimiento).getMonth();
+
+      if (diferenciaMeses < 0 || diferenciaMeses === 0 && new Date().getDate() < new Date(fechaNacimiento).getDate()) {
+        edad--;
+      }
+
+      return edad;
+    },
+    formatearFecha: function formatearFecha(fechaOriginal) {
+      var fecha = new Date(fechaOriginal);
+      var opciones = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      };
+      return fecha.toLocaleDateString('es-ES', opciones);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/APersonalNoPatologico.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/APersonalNoPatologico.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {},
+  props: {
+    id: 0,
+    idusuario: 0
+  },
+  data: function data() {
+    return {
+      antecedente_personal_no_patologico: {
+        id: '',
+        frecuencia_cepillado: '',
+        hilo_dental: '',
+        medicamento: '',
+        medicamento_descripcion: '',
+        tratamiento_medico: '',
+        operacion: '',
+        operacion_descripcion: '',
+        transferencia_sangre: '',
+        consumo_drogas: '',
+        tabaquismo: '',
+        alcoholismo: '',
+        tatuajes: '',
+        embarazo: '',
+        embarazo_meses: '',
+        alergias: '',
+        alergias_descripcion: '',
+        vacunas: '',
+        vacunas_faltantes: '',
+        alergias_anestesico: '',
+        paciente_id: '',
+        user_id: '',
+        created_at: '',
+        updated_at: ''
+      }
+    };
+  },
+  methods: {
+    get_antecedente_personal_no_patologico: function get_antecedente_personal_no_patologico() {
+      var _this = this;
+
+      var params = {
+        idPaciente: this.id,
+        idUsuario: this.idusuario
+      };
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post("/api/get_antecedente_personal_no_patologico", params).then(function (res) {
+        _this.antecedente_personal_no_patologico = res.data;
+      });
+    },
+    save_personal_no_patologico: function save_personal_no_patologico() {
+      var _this2 = this;
+
+      var params = {
+        id: this.antecedente_personal_no_patologico.id,
+        frecuencia_cepillado: this.antecedente_personal_no_patologico.frecuencia_cepillado,
+        hilo_dental: this.antecedente_personal_no_patologico.hilo_dental,
+        medicamento: this.antecedente_personal_no_patologico.medicamento,
+        medicamento_descripcion: this.antecedente_personal_no_patologico.medicamento_descripcion,
+        tratamiento_medico: this.antecedente_personal_no_patologico.tratamiento_medico,
+        operacion: this.antecedente_personal_no_patologico.operacion,
+        operacion_descripcion: this.antecedente_personal_no_patologico.operacion_descripcion,
+        transferencia_sangre: this.antecedente_personal_no_patologico.transferencia_sangre,
+        consumo_drogas: this.antecedente_personal_no_patologico.consumo_drogas,
+        tabaquismo: this.antecedente_personal_no_patologico.tabaquismo,
+        alcoholismo: this.antecedente_personal_no_patologico.alcoholismo,
+        tatuajes: this.antecedente_personal_no_patologico.tatuajes,
+        embarazo: this.antecedente_personal_no_patologico.embarazo,
+        embarazo_meses: this.antecedente_personal_no_patologico.embarazo_meses,
+        alergias: this.antecedente_personal_no_patologico.alergias,
+        alergias_descripcion: this.antecedente_personal_no_patologico.alergias_descripcion,
+        vacunas: this.antecedente_personal_no_patologico.vacunas,
+        vacunas_faltantes: this.antecedente_personal_no_patologico.vacunas_faltantes,
+        alergias_anestesico: this.antecedente_personal_no_patologico.alergias_anestesico
+      };
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post("/api/save_personal_no_patologico", params).then(function (res) {
+        _this2.get_antecedente_personal_no_patologico();
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.get_antecedente_personal_no_patologico();
+  },
+  filters: {
+    calcularEdad: function calcularEdad(fechaNacimiento) {
+      var edad = new Date().getFullYear() - new Date(fechaNacimiento).getFullYear();
+      var diferenciaMeses = new Date().getMonth() - new Date(fechaNacimiento).getMonth();
+
+      if (diferenciaMeses < 0 || diferenciaMeses === 0 && new Date().getDate() < new Date(fechaNacimiento).getDate()) {
+        edad--;
+      }
+
+      return edad;
+    },
+    formatearFecha: function formatearFecha(fechaOriginal) {
+      var fecha = new Date(fechaOriginal);
+      var opciones = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      };
+      return fecha.toLocaleDateString('es-ES', opciones);
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CardPaciente.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CardPaciente.vue?vue&type=script&lang=js& ***!
@@ -6806,6 +7374,8 @@ Vue.component('pacientes-component', (__webpack_require__(/*! ./components/Pacie
 Vue.component('card-paciente-component', (__webpack_require__(/*! ./components/CardPaciente.vue */ "./resources/js/components/CardPaciente.vue")["default"]));
 Vue.component('paciente-general-component', (__webpack_require__(/*! ./components/PacienteInfoGeneral.vue */ "./resources/js/components/PacienteInfoGeneral.vue")["default"]));
 Vue.component('antecedente-patologico-heredofamiliar', (__webpack_require__(/*! ./components/APatologicoHeredo.vue */ "./resources/js/components/APatologicoHeredo.vue")["default"]));
+Vue.component('antecedente-patologico-personal', (__webpack_require__(/*! ./components/APatologicoPersonal.vue */ "./resources/js/components/APatologicoPersonal.vue")["default"]));
+Vue.component('antecedente-personal-no-patologico', (__webpack_require__(/*! ./components/APersonalNoPatologico.vue */ "./resources/js/components/APersonalNoPatologico.vue")["default"]));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -11916,6 +12486,54 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "\n.row[data-v-678c45fe]{\r\n    padding-top: 20px;\r\n    padding-bottom: 20px;\n}\r\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/APatologicoPersonal.vue?vue&type=style&index=0&id=b2021afa&scoped=true&lang=css&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/APatologicoPersonal.vue?vue&type=style&index=0&id=b2021afa&scoped=true&lang=css& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n.row[data-v-b2021afa]{\r\n    padding-top: 20px;\r\n    padding-bottom: 20px;\n}\r\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/APersonalNoPatologico.vue?vue&type=style&index=0&id=589f0fb8&scoped=true&lang=css&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/APersonalNoPatologico.vue?vue&type=style&index=0&id=589f0fb8&scoped=true&lang=css& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n.row[data-v-589f0fb8]{\r\n    padding-top: 20px;\r\n    padding-bottom: 20px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -29531,6 +30149,66 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/APatologicoPersonal.vue?vue&type=style&index=0&id=b2021afa&scoped=true&lang=css&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/APatologicoPersonal.vue?vue&type=style&index=0&id=b2021afa&scoped=true&lang=css& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_APatologicoPersonal_vue_vue_type_style_index_0_id_b2021afa_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./APatologicoPersonal.vue?vue&type=style&index=0&id=b2021afa&scoped=true&lang=css& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/APatologicoPersonal.vue?vue&type=style&index=0&id=b2021afa&scoped=true&lang=css&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_APatologicoPersonal_vue_vue_type_style_index_0_id_b2021afa_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_APatologicoPersonal_vue_vue_type_style_index_0_id_b2021afa_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/APersonalNoPatologico.vue?vue&type=style&index=0&id=589f0fb8&scoped=true&lang=css&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/APersonalNoPatologico.vue?vue&type=style&index=0&id=589f0fb8&scoped=true&lang=css& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_APersonalNoPatologico_vue_vue_type_style_index_0_id_589f0fb8_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./APersonalNoPatologico.vue?vue&type=style&index=0&id=589f0fb8&scoped=true&lang=css& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/APersonalNoPatologico.vue?vue&type=style&index=0&id=589f0fb8&scoped=true&lang=css&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_APersonalNoPatologico_vue_vue_type_style_index_0_id_589f0fb8_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_APersonalNoPatologico_vue_vue_type_style_index_0_id_589f0fb8_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PacienteInfoGeneral.vue?vue&type=style&index=0&id=6ea1118e&scoped=true&lang=css&":
 /*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PacienteInfoGeneral.vue?vue&type=style&index=0&id=6ea1118e&scoped=true&lang=css& ***!
@@ -40141,6 +40819,88 @@ component.options.__file = "resources/js/components/APatologicoHeredo.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/APatologicoPersonal.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/APatologicoPersonal.vue ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _APatologicoPersonal_vue_vue_type_template_id_b2021afa_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./APatologicoPersonal.vue?vue&type=template&id=b2021afa&scoped=true& */ "./resources/js/components/APatologicoPersonal.vue?vue&type=template&id=b2021afa&scoped=true&");
+/* harmony import */ var _APatologicoPersonal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./APatologicoPersonal.vue?vue&type=script&lang=js& */ "./resources/js/components/APatologicoPersonal.vue?vue&type=script&lang=js&");
+/* harmony import */ var _APatologicoPersonal_vue_vue_type_style_index_0_id_b2021afa_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./APatologicoPersonal.vue?vue&type=style&index=0&id=b2021afa&scoped=true&lang=css& */ "./resources/js/components/APatologicoPersonal.vue?vue&type=style&index=0&id=b2021afa&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+;
+
+
+/* normalize component */
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _APatologicoPersonal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _APatologicoPersonal_vue_vue_type_template_id_b2021afa_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _APatologicoPersonal_vue_vue_type_template_id_b2021afa_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "b2021afa",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/APatologicoPersonal.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/APersonalNoPatologico.vue":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/APersonalNoPatologico.vue ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _APersonalNoPatologico_vue_vue_type_template_id_589f0fb8_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./APersonalNoPatologico.vue?vue&type=template&id=589f0fb8&scoped=true& */ "./resources/js/components/APersonalNoPatologico.vue?vue&type=template&id=589f0fb8&scoped=true&");
+/* harmony import */ var _APersonalNoPatologico_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./APersonalNoPatologico.vue?vue&type=script&lang=js& */ "./resources/js/components/APersonalNoPatologico.vue?vue&type=script&lang=js&");
+/* harmony import */ var _APersonalNoPatologico_vue_vue_type_style_index_0_id_589f0fb8_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./APersonalNoPatologico.vue?vue&type=style&index=0&id=589f0fb8&scoped=true&lang=css& */ "./resources/js/components/APersonalNoPatologico.vue?vue&type=style&index=0&id=589f0fb8&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+;
+
+
+/* normalize component */
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _APersonalNoPatologico_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _APersonalNoPatologico_vue_vue_type_template_id_589f0fb8_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _APersonalNoPatologico_vue_vue_type_template_id_589f0fb8_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "589f0fb8",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/APersonalNoPatologico.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/CardPaciente.vue":
 /*!**************************************************!*\
   !*** ./resources/js/components/CardPaciente.vue ***!
@@ -40471,6 +41231,38 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/APatologicoPersonal.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/APatologicoPersonal.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_APatologicoPersonal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./APatologicoPersonal.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/APatologicoPersonal.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_APatologicoPersonal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/APersonalNoPatologico.vue?vue&type=script&lang=js&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/APersonalNoPatologico.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_APersonalNoPatologico_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./APersonalNoPatologico.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/APersonalNoPatologico.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_APersonalNoPatologico_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/CardPaciente.vue?vue&type=script&lang=js&":
 /*!***************************************************************************!*\
   !*** ./resources/js/components/CardPaciente.vue?vue&type=script&lang=js& ***!
@@ -40612,6 +41404,32 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/APatologicoPersonal.vue?vue&type=style&index=0&id=b2021afa&scoped=true&lang=css&":
+/*!******************************************************************************************************************!*\
+  !*** ./resources/js/components/APatologicoPersonal.vue?vue&type=style&index=0&id=b2021afa&scoped=true&lang=css& ***!
+  \******************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_APatologicoPersonal_vue_vue_type_style_index_0_id_b2021afa_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./APatologicoPersonal.vue?vue&type=style&index=0&id=b2021afa&scoped=true&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/APatologicoPersonal.vue?vue&type=style&index=0&id=b2021afa&scoped=true&lang=css&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/APersonalNoPatologico.vue?vue&type=style&index=0&id=589f0fb8&scoped=true&lang=css&":
+/*!********************************************************************************************************************!*\
+  !*** ./resources/js/components/APersonalNoPatologico.vue?vue&type=style&index=0&id=589f0fb8&scoped=true&lang=css& ***!
+  \********************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_APersonalNoPatologico_vue_vue_type_style_index_0_id_589f0fb8_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./APersonalNoPatologico.vue?vue&type=style&index=0&id=589f0fb8&scoped=true&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/APersonalNoPatologico.vue?vue&type=style&index=0&id=589f0fb8&scoped=true&lang=css&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/PacienteInfoGeneral.vue?vue&type=style&index=0&id=6ea1118e&scoped=true&lang=css&":
 /*!******************************************************************************************************************!*\
   !*** ./resources/js/components/PacienteInfoGeneral.vue?vue&type=style&index=0&id=6ea1118e&scoped=true&lang=css& ***!
@@ -40638,6 +41456,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_APatologicoHeredo_vue_vue_type_template_id_678c45fe_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_APatologicoHeredo_vue_vue_type_template_id_678c45fe_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./APatologicoHeredo.vue?vue&type=template&id=678c45fe&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/APatologicoHeredo.vue?vue&type=template&id=678c45fe&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/APatologicoPersonal.vue?vue&type=template&id=b2021afa&scoped=true&":
+/*!****************************************************************************************************!*\
+  !*** ./resources/js/components/APatologicoPersonal.vue?vue&type=template&id=b2021afa&scoped=true& ***!
+  \****************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_APatologicoPersonal_vue_vue_type_template_id_b2021afa_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_APatologicoPersonal_vue_vue_type_template_id_b2021afa_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_APatologicoPersonal_vue_vue_type_template_id_b2021afa_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./APatologicoPersonal.vue?vue&type=template&id=b2021afa&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/APatologicoPersonal.vue?vue&type=template&id=b2021afa&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/APersonalNoPatologico.vue?vue&type=template&id=589f0fb8&scoped=true&":
+/*!******************************************************************************************************!*\
+  !*** ./resources/js/components/APersonalNoPatologico.vue?vue&type=template&id=589f0fb8&scoped=true& ***!
+  \******************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_APersonalNoPatologico_vue_vue_type_template_id_589f0fb8_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_APersonalNoPatologico_vue_vue_type_template_id_589f0fb8_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_APersonalNoPatologico_vue_vue_type_template_id_589f0fb8_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./APersonalNoPatologico.vue?vue&type=template&id=589f0fb8&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/APersonalNoPatologico.vue?vue&type=template&id=589f0fb8&scoped=true&");
 
 
 /***/ }),
@@ -41871,6 +42723,2003 @@ var render = function () {
                     },
                   },
                 }),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+              [_vm._v("Guardar")]
+            ),
+          ]
+        ),
+      ]),
+    ]),
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/APatologicoPersonal.vue?vue&type=template&id=b2021afa&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/APatologicoPersonal.vue?vue&type=template&id=b2021afa&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("h3", [_vm._v("Antecedentes Patológicos Personales")]),
+        _vm._v(" "),
+        _c(
+          "form",
+          {
+            on: {
+              submit: function ($event) {
+                $event.preventDefault()
+                return _vm.save_personal.apply(null, arguments)
+              },
+            },
+          },
+          [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-label", attrs: { for: "diabetes" } },
+                  [_vm._v("Diabetes")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.antecedente_patologico_personal.diabetes,
+                        expression: "antecedente_patologico_personal.diabetes",
+                      },
+                    ],
+                    staticClass: "form-select",
+                    attrs: { placeholder: "Selecciona una opción" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.antecedente_patologico_personal,
+                          "diabetes",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-label", attrs: { for: "hipertension" } },
+                  [_vm._v("Hipertensión")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.antecedente_patologico_personal.hipertension,
+                        expression:
+                          "antecedente_patologico_personal.hipertension",
+                      },
+                    ],
+                    staticClass: "form-select",
+                    attrs: { placeholder: "Selecciona una opción" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.antecedente_patologico_personal,
+                          "hipertension",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-label", attrs: { for: "hipotension" } },
+                  [_vm._v("Hipotensión")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.antecedente_patologico_personal.hipotension,
+                        expression:
+                          "antecedente_patologico_personal.hipotension",
+                      },
+                    ],
+                    staticClass: "form-select",
+                    attrs: { placeholder: "Selecciona una opción" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.antecedente_patologico_personal,
+                          "hipotension",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-label", attrs: { for: "cardiopatias" } },
+                  [_vm._v("Cardiopatías")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.antecedente_patologico_personal.cardiopatias,
+                        expression:
+                          "antecedente_patologico_personal.cardiopatias",
+                      },
+                    ],
+                    staticClass: "form-select",
+                    attrs: { placeholder: "Selecciona una opción" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.antecedente_patologico_personal,
+                          "cardiopatias",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-label", attrs: { for: "cancer" } },
+                  [_vm._v("Cáncer")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.antecedente_patologico_personal.cancer,
+                        expression: "antecedente_patologico_personal.cancer",
+                      },
+                    ],
+                    staticClass: "form-select",
+                    attrs: { placeholder: "Selecciona una opción" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.antecedente_patologico_personal,
+                          "cancer",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-label", attrs: { for: "hemofilia" } },
+                  [_vm._v("Hemofilia")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.antecedente_patologico_personal.hemofilia,
+                        expression: "antecedente_patologico_personal.hemofilia",
+                      },
+                    ],
+                    staticClass: "form-select",
+                    attrs: { placeholder: "Selecciona una opción" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.antecedente_patologico_personal,
+                          "hemofilia",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-label", attrs: { for: "hepatitis" } },
+                  [_vm._v("Hepatitis")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.antecedente_patologico_personal.hepatitis,
+                        expression: "antecedente_patologico_personal.hepatitis",
+                      },
+                    ],
+                    staticClass: "form-select",
+                    attrs: { placeholder: "Selecciona una opción" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.antecedente_patologico_personal,
+                          "hepatitis",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-label", attrs: { for: "amigdalitis" } },
+                  [_vm._v("Amigdalitis")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.antecedente_patologico_personal.amigdalitis,
+                        expression:
+                          "antecedente_patologico_personal.amigdalitis",
+                      },
+                    ],
+                    staticClass: "form-select",
+                    attrs: { placeholder: "Selecciona una opción" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.antecedente_patologico_personal,
+                          "amigdalitis",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-label", attrs: { for: "vih" } },
+                  [_vm._v("VIH / SIDA")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.antecedente_patologico_personal.vih,
+                        expression: "antecedente_patologico_personal.vih",
+                      },
+                    ],
+                    staticClass: "form-select",
+                    attrs: { placeholder: "Selecciona una opción" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.antecedente_patologico_personal,
+                          "vih",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-label", attrs: { for: "convulsiones" } },
+                  [_vm._v("Convulsiones")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.antecedente_patologico_personal.convulsiones,
+                        expression:
+                          "antecedente_patologico_personal.convulsiones",
+                      },
+                    ],
+                    staticClass: "form-select",
+                    attrs: { placeholder: "Selecciona una opción" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.antecedente_patologico_personal,
+                          "convulsiones",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-label", attrs: { for: "asma" } },
+                  [_vm._v("Asma")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.antecedente_patologico_personal.asma,
+                        expression: "antecedente_patologico_personal.asma",
+                      },
+                    ],
+                    staticClass: "form-select",
+                    attrs: { placeholder: "Selecciona una opción" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.antecedente_patologico_personal,
+                          "asma",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-label", attrs: { for: "anemia" } },
+                  [_vm._v("Anemia")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.antecedente_patologico_personal.anemia,
+                        expression: "antecedente_patologico_personal.anemia",
+                      },
+                    ],
+                    staticClass: "form-select",
+                    attrs: { placeholder: "Selecciona una opción" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.antecedente_patologico_personal,
+                          "anemia",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-label", attrs: { for: "tosferina" } },
+                  [_vm._v("Tosferina")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.antecedente_patologico_personal.tosferina,
+                        expression: "antecedente_patologico_personal.tosferina",
+                      },
+                    ],
+                    staticClass: "form-select",
+                    attrs: { placeholder: "Selecciona una opción" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.antecedente_patologico_personal,
+                          "tosferina",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-label", attrs: { for: "artritis" } },
+                  [_vm._v("Artritis")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.antecedente_patologico_personal.artritis,
+                        expression: "antecedente_patologico_personal.artritis",
+                      },
+                    ],
+                    staticClass: "form-select",
+                    attrs: { placeholder: "Selecciona una opción" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.antecedente_patologico_personal,
+                          "artritis",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-label", attrs: { for: "varicela" } },
+                  [_vm._v("Varicela")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.antecedente_patologico_personal.varicela,
+                        expression: "antecedente_patologico_personal.varicela",
+                      },
+                    ],
+                    staticClass: "form-select",
+                    attrs: { placeholder: "Selecciona una opción" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.antecedente_patologico_personal,
+                          "varicela",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-label", attrs: { for: "rubeola" } },
+                  [_vm._v("Rubeola")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.antecedente_patologico_personal.rubeola,
+                        expression: "antecedente_patologico_personal.rubeola",
+                      },
+                    ],
+                    staticClass: "form-select",
+                    attrs: { placeholder: "Selecciona una opción" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.antecedente_patologico_personal,
+                          "rubeola",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-label", attrs: { for: "sarampion" } },
+                  [_vm._v("Sarampión")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.antecedente_patologico_personal.sarampion,
+                        expression: "antecedente_patologico_personal.sarampion",
+                      },
+                    ],
+                    staticClass: "form-select",
+                    attrs: { placeholder: "Selecciona una opción" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.antecedente_patologico_personal,
+                          "sarampion",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-label", attrs: { for: "fiebre" } },
+                  [_vm._v("Fiebre Reumática")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.antecedente_patologico_personal.fiebre,
+                        expression: "antecedente_patologico_personal.fiebre",
+                      },
+                    ],
+                    staticClass: "form-select",
+                    attrs: { placeholder: "Selecciona una opción" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.antecedente_patologico_personal,
+                          "fiebre",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-label", attrs: { for: "tuberculosis" } },
+                  [_vm._v("Tuberculosis")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.antecedente_patologico_personal.tuberculosis,
+                        expression:
+                          "antecedente_patologico_personal.tuberculosis",
+                      },
+                    ],
+                    staticClass: "form-select",
+                    attrs: { placeholder: "Selecciona una opción" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.antecedente_patologico_personal,
+                          "tuberculosis",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-12" }, [
+                _c(
+                  "label",
+                  {
+                    staticClass: "form-label",
+                    attrs: { for: "observaciones" },
+                  },
+                  [_vm._v("Observaciones")]
+                ),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.antecedente_patologico_personal.observaciones,
+                      expression:
+                        "antecedente_patologico_personal.observaciones",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  domProps: {
+                    value: _vm.antecedente_patologico_personal.observaciones,
+                  },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.antecedente_patologico_personal,
+                        "observaciones",
+                        $event.target.value
+                      )
+                    },
+                  },
+                }),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+              [_vm._v("Guardar")]
+            ),
+          ]
+        ),
+      ]),
+    ]),
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/APersonalNoPatologico.vue?vue&type=template&id=589f0fb8&scoped=true&":
+/*!*********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/APersonalNoPatologico.vue?vue&type=template&id=589f0fb8&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("h3", [_vm._v("Antecedentes Personales No Patologicoss")]),
+        _vm._v(" "),
+        _c(
+          "form",
+          {
+            on: {
+              submit: function ($event) {
+                $event.preventDefault()
+                return _vm.save_personal_no_patologico.apply(null, arguments)
+              },
+            },
+          },
+          [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  {
+                    staticClass: "form-label",
+                    attrs: { for: "frecuencia_cepillado" },
+                  },
+                  [_vm._v("Frecuencia de Cepillado")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value:
+                          _vm.antecedente_personal_no_patologico
+                            .frecuencia_cepillado,
+                        expression:
+                          "antecedente_personal_no_patologico.frecuencia_cepillado",
+                      },
+                    ],
+                    staticClass: "form-select",
+                    attrs: { placeholder: "Selecciona una opción" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.antecedente_personal_no_patologico,
+                          "frecuencia_cepillado",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "null" } }, [
+                      _vm._v("Nunca"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1" } }, [
+                      _vm._v("1 vez al día"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "2" } }, [
+                      _vm._v("2 veces al día"),
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "3" } }, [
+                      _vm._v("3 veces al día"),
+                    ]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-label", attrs: { for: "hilo_dental" } },
+                  [_vm._v("Hilo Dental")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value:
+                          _vm.antecedente_personal_no_patologico.hilo_dental,
+                        expression:
+                          "antecedente_personal_no_patologico.hilo_dental",
+                      },
+                    ],
+                    staticClass: "form-select",
+                    attrs: { placeholder: "Selecciona una opción" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.antecedente_personal_no_patologico,
+                          "hilo_dental",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-label", attrs: { for: "medicamento" } },
+                  [_vm._v("¿Toma Medicamento?")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value:
+                          _vm.antecedente_personal_no_patologico.medicamento,
+                        expression:
+                          "antecedente_personal_no_patologico.medicamento",
+                      },
+                    ],
+                    staticClass: "form-select",
+                    attrs: { placeholder: "Selecciona una opción" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.antecedente_personal_no_patologico,
+                          "medicamento",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  {
+                    staticClass: "form-label",
+                    attrs: { for: "medicamento_descripcion" },
+                  },
+                  [_vm._v("¿Cuáles Medicamentos?")]
+                ),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value:
+                        _vm.antecedente_personal_no_patologico
+                          .medicamento_descripcion,
+                      expression:
+                        "antecedente_personal_no_patologico.medicamento_descripcion",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  domProps: {
+                    value:
+                      _vm.antecedente_personal_no_patologico
+                        .medicamento_descripcion,
+                  },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.antecedente_personal_no_patologico,
+                        "medicamento_descripcion",
+                        $event.target.value
+                      )
+                    },
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  {
+                    staticClass: "form-label",
+                    attrs: { for: "tratamiento_medico" },
+                  },
+                  [_vm._v("¿Está bajo tratamiento médico?")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value:
+                          _vm.antecedente_personal_no_patologico
+                            .tratamiento_medico,
+                        expression:
+                          "antecedente_personal_no_patologico.tratamiento_medico",
+                      },
+                    ],
+                    staticClass: "form-select",
+                    attrs: { placeholder: "Selecciona una opción" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.antecedente_personal_no_patologico,
+                          "tratamiento_medico",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-label", attrs: { for: "operacion" } },
+                  [_vm._v("¿Lo han operado alguna vez?")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.antecedente_personal_no_patologico.operacion,
+                        expression:
+                          "antecedente_personal_no_patologico.operacion",
+                      },
+                    ],
+                    staticClass: "form-select",
+                    attrs: { placeholder: "Selecciona una opción" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.antecedente_personal_no_patologico,
+                          "operacion",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  {
+                    staticClass: "form-label",
+                    attrs: { for: "operacion_descripcion" },
+                  },
+                  [_vm._v("¿Qué tipo de operación?")]
+                ),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value:
+                        _vm.antecedente_personal_no_patologico
+                          .operacion_descripcion,
+                      expression:
+                        "antecedente_personal_no_patologico.operacion_descripcion",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  domProps: {
+                    value:
+                      _vm.antecedente_personal_no_patologico
+                        .operacion_descripcion,
+                  },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.antecedente_personal_no_patologico,
+                        "operacion_descripcion",
+                        $event.target.value
+                      )
+                    },
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  {
+                    staticClass: "form-label",
+                    attrs: { for: "transferencia_sangre" },
+                  },
+                  [_vm._v("¿Le han hecho transfución de sangre?")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value:
+                          _vm.antecedente_personal_no_patologico
+                            .transferencia_sangre,
+                        expression:
+                          "antecedente_personal_no_patologico.transferencia_sangre",
+                      },
+                    ],
+                    staticClass: "form-select",
+                    attrs: { placeholder: "Selecciona una opción" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.antecedente_personal_no_patologico,
+                          "transferencia_sangre",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  {
+                    staticClass: "form-label",
+                    attrs: { for: "consumo_drogas" },
+                  },
+                  [_vm._v("¿Consume o ha consumido drogas?")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value:
+                          _vm.antecedente_personal_no_patologico.consumo_drogas,
+                        expression:
+                          "antecedente_personal_no_patologico.consumo_drogas",
+                      },
+                    ],
+                    staticClass: "form-select",
+                    attrs: { placeholder: "Selecciona una opción" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.antecedente_personal_no_patologico,
+                          "consumo_drogas",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-label", attrs: { for: "tabaquismo" } },
+                  [_vm._v("¿Tabaquismo?")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value:
+                          _vm.antecedente_personal_no_patologico.tabaquismo,
+                        expression:
+                          "antecedente_personal_no_patologico.tabaquismo",
+                      },
+                    ],
+                    staticClass: "form-select",
+                    attrs: { placeholder: "Selecciona una opción" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.antecedente_personal_no_patologico,
+                          "tabaquismo",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-label", attrs: { for: "alcoholismo" } },
+                  [_vm._v("¿Alcoholismo?")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value:
+                          _vm.antecedente_personal_no_patologico.alcoholismo,
+                        expression:
+                          "antecedente_personal_no_patologico.alcoholismo",
+                      },
+                    ],
+                    staticClass: "form-select",
+                    attrs: { placeholder: "Selecciona una opción" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.antecedente_personal_no_patologico,
+                          "alcoholismo",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-label", attrs: { for: "tatuajes" } },
+                  [_vm._v("¿Tatuajes?")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.antecedente_personal_no_patologico.tatuajes,
+                        expression:
+                          "antecedente_personal_no_patologico.tatuajes",
+                      },
+                    ],
+                    staticClass: "form-select",
+                    attrs: { placeholder: "Selecciona una opción" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.antecedente_personal_no_patologico,
+                          "tatuajes",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-label", attrs: { for: "embarazo" } },
+                  [_vm._v("¿Está embarazada?")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.antecedente_personal_no_patologico.embarazo,
+                        expression:
+                          "antecedente_personal_no_patologico.embarazo",
+                      },
+                    ],
+                    staticClass: "form-select",
+                    attrs: { placeholder: "Selecciona una opción" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.antecedente_personal_no_patologico,
+                          "embarazo",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-label", attrs: { for: "embarazo" } },
+                  [_vm._v("Meses de embarazo")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value:
+                        _vm.antecedente_personal_no_patologico.embarazo_meses,
+                      expression:
+                        "antecedente_personal_no_patologico.embarazo_meses",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "number", min: "0", max: "9" },
+                  domProps: {
+                    value:
+                      _vm.antecedente_personal_no_patologico.embarazo_meses,
+                  },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.antecedente_personal_no_patologico,
+                        "embarazo_meses",
+                        $event.target.value
+                      )
+                    },
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-label", attrs: { for: "alergias" } },
+                  [_vm._v("¿Alergia a Medicamentos?")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.antecedente_personal_no_patologico.alergias,
+                        expression:
+                          "antecedente_personal_no_patologico.alergias",
+                      },
+                    ],
+                    staticClass: "form-select",
+                    attrs: { placeholder: "Selecciona una opción" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.antecedente_personal_no_patologico,
+                          "alergias",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  {
+                    staticClass: "form-label",
+                    attrs: { for: "alergias_descripcion" },
+                  },
+                  [_vm._v("¿Cuáles?")]
+                ),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value:
+                        _vm.antecedente_personal_no_patologico
+                          .alergias_descripcion,
+                      expression:
+                        "antecedente_personal_no_patologico.alergias_descripcion",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  domProps: {
+                    value:
+                      _vm.antecedente_personal_no_patologico
+                        .alergias_descripcion,
+                  },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.antecedente_personal_no_patologico,
+                        "alergias_descripcion",
+                        $event.target.value
+                      )
+                    },
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-label", attrs: { for: "vacunas" } },
+                  [_vm._v("¿Cuenta con todas sus vacunas?")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.antecedente_personal_no_patologico.vacunas,
+                        expression:
+                          "antecedente_personal_no_patologico.vacunas",
+                      },
+                    ],
+                    staticClass: "form-select",
+                    attrs: { placeholder: "Selecciona una opción" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.antecedente_personal_no_patologico,
+                          "vacunas",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")]),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  {
+                    staticClass: "form-label",
+                    attrs: { for: "vacunas_faltantes" },
+                  },
+                  [_vm._v("¿Cuáles?")]
+                ),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value:
+                        _vm.antecedente_personal_no_patologico
+                          .vacunas_faltantes,
+                      expression:
+                        "antecedente_personal_no_patologico.vacunas_faltantes",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  domProps: {
+                    value:
+                      _vm.antecedente_personal_no_patologico.vacunas_faltantes,
+                  },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.antecedente_personal_no_patologico,
+                        "vacunas_faltantes",
+                        $event.target.value
+                      )
+                    },
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c(
+                  "label",
+                  {
+                    staticClass: "form-label",
+                    attrs: { for: "alergias_anestesico" },
+                  },
+                  [_vm._v("¿Es alérgico a algún anestésico?")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value:
+                          _vm.antecedente_personal_no_patologico
+                            .alergias_anestesico,
+                        expression:
+                          "antecedente_personal_no_patologico.alergias_anestesico",
+                      },
+                    ],
+                    staticClass: "form-select",
+                    attrs: { placeholder: "Selecciona una opción" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.antecedente_personal_no_patologico,
+                          "alergias_anestesico",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { value: "SI" } }, [_vm._v("SI")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "NO" } }, [_vm._v("NO")]),
+                  ]
+                ),
               ]),
             ]),
             _vm._v(" "),
