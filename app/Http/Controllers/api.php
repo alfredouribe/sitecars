@@ -11,6 +11,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Paciente;
 use App\Models\PacienteDatoGeneral;
+use App\Models\AntecedentePatologicoHeredoFamiliar;
 
 
 class api extends Controller
@@ -189,5 +190,56 @@ class api extends Controller
         $info_general = request()->except(['_token', '_method']);
         $info_general['tutor'] = $info_general['tutor'] ? $info_general['tutor'] : '';
         PacienteDatoGeneral::where('id', '=', $request->id)->update($info_general);
+    }
+
+    public function get_antecedente_patologico_heredofamiliares(Request $request){
+        $idPaciente = $request->idPaciente;
+        $idUsuario = $request->idUsuario;
+
+        $paciente = AntecedentePatologicoHeredoFamiliar::select('*')->where('paciente_id', '=', $idPaciente)->get();
+        //si no tiene el registro entonces lo genera
+        if(!count($paciente)){
+            $paciente = new AntecedentePatologicoHeredoFamiliar;
+
+            $paciente->paciente_id = $idPaciente;
+            $paciente->user_id = $idUsuario;
+            $paciente->diabetes = null;
+            $paciente->diabetes_familiar = null;
+            $paciente->hipertension = null;
+            $paciente->hipertension_familiar = null;
+            $paciente->cardiopatias = null;
+            $paciente->cardiopatias_familiar = null;
+            $paciente->cancer = null;
+            $paciente->cancer_familiar = null;
+            $paciente->asma = null;
+            $paciente->asma_familiar = null;
+            $paciente->renal = null;
+            $paciente->renal_familiar = null;
+            $paciente->hemofilia = null;
+            $paciente->hemofilia_familiar = null;
+            $paciente->hipotension = null;
+            $paciente->hipotension_familiar = null;
+            $paciente->convulsiones = null;
+            $paciente->convulsiones_familiar = null;
+            $paciente->vih = null;
+            $paciente->vih_familiar = null;
+            $paciente->anemia = null;
+            $paciente->anemia_familiar = null;
+            $paciente->neoplasias = null;
+            $paciente->neoplasias_familiar = null;
+            $paciente->observaciones = null;
+
+            $paciente->save();
+
+            $paciente = AntecedentePatologicoHeredoFamiliar::select('*')->where('paciente_id', '=', $idPaciente)->get();
+
+        }
+
+        return $paciente[0];
+    }
+
+    public function save_heredofamiliar(Request $request){
+        $info = request()->except(['_token', '_method']);
+        AntecedentePatologicoHeredoFamiliar::where('id', '=', $request->id)->update($info);
     }
 }

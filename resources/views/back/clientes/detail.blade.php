@@ -82,7 +82,7 @@
                             <div class="mb-3">
                                 <label class="col-sm-12">Select Country</label>
                                 <div class="col-sm-12">
-                                    <select class="form-control form-control-line">
+                                    <select class="form-select form-control-line">
                                         <option>London</option>
                                         <option>India</option>
                                         <option>Usa</option>

@@ -83,7 +83,7 @@
 
                         <div class="mb-3">
                             <label for="telefono" class="form-label">Sexo*</label>
-                            <select class="form-control" v-model="paciente.sexo" required>
+                            <select class="form-select" v-model="paciente.sexo" required>
                                 <option selected disabled>Selecciona una opción</option>
                                 <option value="M">Masculino</option>
                                 <option value="F">Femenino</option>
