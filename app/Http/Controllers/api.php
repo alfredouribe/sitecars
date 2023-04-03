@@ -14,6 +14,7 @@ use App\Models\PacienteDatoGeneral;
 use App\Models\AntecedentePatologicoHeredoFamiliar;
 use App\Models\AntecedentePatologicoPersonal;
 use App\Models\AntecedentePersonalNoPatologico;
+use App\Models\Tratamiento;
 
 
 class api extends Controller
@@ -334,5 +335,32 @@ class api extends Controller
     public function save_personal_no_patologico(Request $request){
         $info = request()->except(['_token', '_method']);
         AntecedentePersonalNoPatologico::where('id', '=', $request->id)->update($info);
+    }
+
+    public function get_tratamientos(Request $request){
+        $id = $request->id;
+
+        $tratamientos = Tratamiento::where("tratamientos.paciente_id" , "=", $id)
+        ->join('users', "tratamientos.user_id", "=", "users.id")
+        ->select('tratamientos.*', 'users.name')
+        ->get();
+
+        return $tratamientos;
+    }
+    
+    public function save_tratamiento(Request $request){
+        $tratamientoM = new Tratamiento;
+
+        $tratamientoM->fecha = $request->fecha;
+        $tratamientoM->tratamiento = $request->tratamiento;
+        $tratamientoM->costo = $request->costo;
+        $tratamientoM->abono = $request->abono;
+        $tratamientoM->pago = $request->pago;
+        $tratamientoM->firma = $request->firma;
+        $tratamientoM->paciente_id = $request->idPaciente;
+        $tratamientoM->user_id = $request->idUsuario;
+
+        $tratamientoM->save();
+
     }
 }

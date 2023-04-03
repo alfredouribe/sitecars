@@ -34,6 +34,7 @@ Vue.component('paciente-general-component', require('./components/PacienteInfoGe
 Vue.component('antecedente-patologico-heredofamiliar', require('./components/APatologicoHeredo.vue').default);
 Vue.component('antecedente-patologico-personal', require('./components/APatologicoPersonal.vue').default);
 Vue.component('antecedente-personal-no-patologico', require('./components/APersonalNoPatologico.vue').default);
+Vue.component('tratamientos-component', require('./components/TratamiendosComponent.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
