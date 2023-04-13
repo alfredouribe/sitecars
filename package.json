@@ -26,7 +26,9 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^6.1.1",
         "datatables.net-dt": "^1.13.4",
+        "gasparesganga-jquery-loading-overlay": "^2.1.7",
         "vue-good-table": "^2.21.11",
+        "vue-signature": "^2.5.6",
         "vue2-dropzone": "^3.6.0"
     }
 }

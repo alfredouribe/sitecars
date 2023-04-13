@@ -20,7 +20,7 @@ class CreateTratamientosTable extends Migration
             $table->double('costo', 9, 5);
             $table->double('abono', 9, 5);
             $table->double('pago', 9, 5);
-            $table->string('firma', '100');
+            $table->longtext('firma');
             $table->unsignedBigInteger('paciente_id');
             $table->unsignedBigInteger('user_id');
             $table->foreign('paciente_id')->references('id')->on('pacientes')->onDelete('restrict');

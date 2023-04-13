@@ -39,4 +39,5 @@ Route::post('get_antecedente_personal_no_patologico',['App\Http\Controllers\api'
 Route::post('save_personal_no_patologico',['App\Http\Controllers\api', 'save_personal_no_patologico'])->name('save_personal_no_patologico');
 Route::post('get_tratamientos',['App\Http\Controllers\api', 'get_tratamientos'])->name('get_tratamientos');
 Route::post('save_tratamiento',['App\Http\Controllers\api', 'save_tratamiento'])->name('save_tratamiento');
+Route::post('actualiza_firma',['App\Http\Controllers\api', 'actualiza_firma'])->name('actualiza_firma');
 //cambia_status_usuario_cliente update_paciente

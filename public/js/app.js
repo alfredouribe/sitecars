@@ -7262,26 +7262,73 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     id: 0,
     idusuario: 0
   },
+  components: {},
   data: function data() {
     return {
-      usuarios: [],
-      usuario: {
-        id: '',
-        nombres: '',
-        email: '',
-        password: '',
-        idCliente: '',
-        idUsuario: '',
-        activo: '',
-        created_at: '',
-        updated_at: ''
-      },
       columns: [{
         label: 'Id',
         field: 'id'
@@ -7306,11 +7353,10 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         label: 'Registra',
         field: 'name'
-      } // {
-      //     label: 'Opciones',
-      //     field: 'opciones'
-      // }
-      ],
+      }, {
+        label: 'Opciones',
+        field: 'opciones'
+      }],
       tratamientos: [],
       tratamiento: {
         id: '',
@@ -7324,7 +7370,14 @@ __webpack_require__.r(__webpack_exports__);
         user_id: '',
         created_at: '',
         updated_at: ''
-      }
+      },
+      option: {
+        penColor: "rgb(0, 0, 0)",
+        backgroundColor: "rgb(255,255,255)"
+      },
+      disabled: false,
+      dataUrl: "https://avatars2.githubusercontent.com/u/17644818?s=460&v=4",
+      id_tratamiento: ''
     };
   },
   mounted: function mounted() {
@@ -7373,6 +7426,34 @@ __webpack_require__.r(__webpack_exports__);
       axios__WEBPACK_IMPORTED_MODULE_0___default().post("/api/cambia_status_usuario_cliente", params).then(function (res) {
         _this3.get_usuarios_cliente();
       });
+    },
+    modalFirma: function modalFirma(id) {
+      $("#modalFirma").modal('show');
+      this.id_tratamiento = id;
+    },
+    guarda_firma: function guarda_firma() {
+      var _this4 = this;
+
+      $.LoadingOverlay("show");
+      setTimeout(function () {
+        var drawText = document.getElementById("draw-dataUrl"); // Obtener el elemento textarea por su ID
+
+        var drawDataUrlValue = drawText.value; // Obtener el valor del textarea
+
+        var params = {
+          "firma": drawDataUrlValue,
+          "id_tratamiento": _this4.id_tratamiento,
+          "algo": "algo",
+          "id": 2
+        };
+        axios__WEBPACK_IMPORTED_MODULE_0___default().post("/api/actualiza_firma", params).then(function (res) {
+          $.LoadingOverlay("hide"); // $("#modalFirma").modal('hide')
+
+          _this4.id_tratamiento = ''; // this.get_tratamientos()
+
+          window.location.reload();
+        });
+      }, 3000);
     }
   },
   filters: {
@@ -7398,6 +7479,153 @@ __webpack_require__.r(__webpack_exports__);
     }
   }
 });
+setTimeout(function () {
+  (function () {
+    // Comenzamos una funcion auto-ejecutable
+    // Obtenenemos un intervalo regular(Tiempo) en la pamtalla
+    window.requestAnimFrame = function (callback) {
+      return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimaitonFrame || function (callback) {
+        window.setTimeout(callback, 1000 / 60); // Retrasa la ejecucion de la funcion para mejorar la experiencia
+      };
+    }(); // Traemos el canvas mediante el id del elemento html
+
+
+    var canvas = document.getElementById("draw-canvas");
+    var ctx = canvas.getContext("2d"); // Mandamos llamar a los Elemetos interactivos de la Interfaz HTML
+
+    var drawText = document.getElementById("draw-dataUrl");
+    var drawImage = document.getElementById("draw-image");
+    var clearBtn = document.getElementById("draw-clearBtn");
+    var submitBtn = document.getElementById("draw-submitBtn");
+    clearBtn.addEventListener("click", function (e) {
+      // Definimos que pasa cuando el boton draw-clearBtn es pulsado
+      clearCanvas();
+      drawImage.setAttribute("src", "");
+    }, false); // Definimos que pasa cuando el boton draw-submitBtn es pulsado
+
+    submitBtn.addEventListener("click", function (e) {
+      var dataUrl = canvas.toDataURL();
+      drawText.innerHTML = dataUrl;
+      drawImage.setAttribute("src", dataUrl);
+    }, false); // Activamos MouseEvent para nuestra pagina
+
+    var drawing = false;
+    var mousePos = {
+      x: 0,
+      y: 0
+    };
+    var lastPos = mousePos;
+    canvas.addEventListener("mousedown", function (e) {
+      /*
+        Mas alla de solo llamar a una funcion, usamos function (e){...}
+        para mas versatilidad cuando ocurre un evento
+      */
+      var tint = document.getElementById("color");
+      var punta = document.getElementById("puntero");
+      console.log(e);
+      drawing = true;
+      lastPos = getMousePos(canvas, e);
+    }, false);
+    canvas.addEventListener("mouseup", function (e) {
+      drawing = false;
+    }, false);
+    canvas.addEventListener("mousemove", function (e) {
+      mousePos = getMousePos(canvas, e);
+    }, false); // Activamos touchEvent para nuestra pagina
+
+    canvas.addEventListener("touchstart", function (e) {
+      mousePos = getTouchPos(canvas, e);
+      console.log(mousePos);
+      e.preventDefault(); // Prevent scrolling when touching the canvas
+
+      var touch = e.touches[0];
+      var mouseEvent = new MouseEvent("mousedown", {
+        clientX: touch.clientX,
+        clientY: touch.clientY
+      });
+      canvas.dispatchEvent(mouseEvent);
+    }, false);
+    canvas.addEventListener("touchend", function (e) {
+      e.preventDefault(); // Prevent scrolling when touching the canvas
+
+      var mouseEvent = new MouseEvent("mouseup", {});
+      canvas.dispatchEvent(mouseEvent);
+    }, false);
+    canvas.addEventListener("touchleave", function (e) {
+      // Realiza el mismo proceso que touchend en caso de que el dedo se deslice fuera del canvas
+      e.preventDefault(); // Prevent scrolling when touching the canvas
+
+      var mouseEvent = new MouseEvent("mouseup", {});
+      canvas.dispatchEvent(mouseEvent);
+    }, false);
+    canvas.addEventListener("touchmove", function (e) {
+      e.preventDefault(); // Prevent scrolling when touching the canvas
+
+      var touch = e.touches[0];
+      var mouseEvent = new MouseEvent("mousemove", {
+        clientX: touch.clientX,
+        clientY: touch.clientY
+      });
+      canvas.dispatchEvent(mouseEvent);
+    }, false); // Get the position of the mouse relative to the canvas
+
+    function getMousePos(canvasDom, mouseEvent) {
+      var rect = canvasDom.getBoundingClientRect();
+      /*
+        Devuelve el tamaño de un elemento y su posición relativa respecto
+        a la ventana de visualización (viewport).
+      */
+
+      return {
+        x: mouseEvent.clientX - rect.left,
+        y: mouseEvent.clientY - rect.top
+      };
+    } // Get the position of a touch relative to the canvas
+
+
+    function getTouchPos(canvasDom, touchEvent) {
+      var rect = canvasDom.getBoundingClientRect();
+      console.log(touchEvent);
+      /*
+        Devuelve el tamaño de un elemento y su posición relativa respecto
+        a la ventana de visualización (viewport).
+      */
+
+      return {
+        x: touchEvent.touches[0].clientX - rect.left,
+        // Popiedad de todo evento Touch
+        y: touchEvent.touches[0].clientY - rect.top
+      };
+    } // Draw to the canvas
+
+
+    function renderCanvas() {
+      if (drawing) {
+        var tint = document.getElementById("color");
+        var punta = document.getElementById("puntero");
+        ctx.strokeStyle = tint.value;
+        ctx.beginPath();
+        ctx.moveTo(lastPos.x, lastPos.y);
+        ctx.lineTo(mousePos.x, mousePos.y);
+        console.log(punta.value);
+        ctx.lineWidth = punta.value;
+        ctx.stroke();
+        ctx.closePath();
+        lastPos = mousePos;
+      }
+    }
+
+    function clearCanvas() {
+      canvas.width = canvas.width;
+    } // Allow for animation
+
+
+    (function drawLoop() {
+      requestAnimFrame(drawLoop);
+      renderCanvas();
+    })();
+  })();
+}, 3000);
 
 /***/ }),
 
@@ -47397,6 +47625,31 @@ var render = function () {
                         ),
                       ]),
                     ])
+                  : props.column.field == "firma"
+                  ? _c("span", [
+                      _c("img", {
+                        staticStyle: { "max-width": "100%" },
+                        attrs: { src: props.row.firma },
+                      }),
+                    ])
+                  : props.column.field == "opciones"
+                  ? _c("span", [
+                      props.row.firma === ""
+                        ? _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-success",
+                              attrs: { type: "button" },
+                              on: {
+                                click: function ($event) {
+                                  return _vm.modalFirma(props.row.id)
+                                },
+                              },
+                            },
+                            [_vm._v("Firmar")]
+                          )
+                        : _vm._e(),
+                    ])
                   : _c("span", [
                       _vm._v(
                         "\n                " +
@@ -47633,45 +47886,6 @@ var render = function () {
                       }),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "mb-3" }, [
-                      _c(
-                        "label",
-                        { staticClass: "form-label", attrs: { for: "firma" } },
-                        [_vm._v("Firma*")]
-                      ),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.tratamiento.firma,
-                            expression: "tratamiento.firma",
-                          },
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "text",
-                          maxlength: "100",
-                          id: "firma",
-                          required: "",
-                        },
-                        domProps: { value: _vm.tratamiento.firma },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.tratamiento,
-                              "firma",
-                              $event.target.value
-                            )
-                          },
-                        },
-                      }),
-                    ]),
-                    _vm._v(" "),
                     _c(
                       "button",
                       {
@@ -47685,6 +47899,71 @@ var render = function () {
               ]),
               _vm._v(" "),
               _vm._m(1),
+            ]),
+          ]),
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: {
+            id: "modalFirma",
+            tabindex: "-1",
+            "aria-labelledby": "modalForm",
+            "aria-hidden": "true",
+          },
+        },
+        [
+          _c("div", { staticClass: "modal-dialog" }, [
+            _c("div", { staticClass: "modal-content" }, [
+              _vm._m(2),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c("div", { staticClass: "contenedor" }, [
+                  _vm._m(3),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-md-12" }, [
+                      _c("input", {
+                        staticClass: "button btn btn-success",
+                        attrs: {
+                          type: "button",
+                          id: "draw-submitBtn",
+                          value: "Aceptar",
+                        },
+                        on: {
+                          click: function ($event) {
+                            return _vm.guarda_firma()
+                          },
+                        },
+                      }),
+                      _vm._v(" "),
+                      _c("input", {
+                        staticClass: "button btn btn-warning",
+                        attrs: {
+                          type: "button",
+                          id: "draw-clearBtn",
+                          value: "Borrar",
+                        },
+                      }),
+                      _vm._v(" "),
+                      _vm._m(4),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _vm._m(5),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _vm._m(6),
+                ]),
+              ]),
+              _vm._v(" "),
+              _vm._m(7),
             ]),
           ]),
         ]
@@ -47712,6 +47991,117 @@ var staticRenderFns = [
         },
       }),
     ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary",
+          attrs: { type: "button", "data-bs-dismiss": "modal" },
+        },
+        [_vm._v("Cerrar")]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("h5", { staticClass: "modal-title", attrs: { id: "modalForm" } }, [
+        _vm._v("Firmar"),
+      ]),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-12 text-center" }, [
+        _c(
+          "canvas",
+          {
+            staticStyle: { border: "1px solid red" },
+            attrs: { id: "draw-canvas", width: "300px", height: "300px" },
+          },
+          [
+            _vm._v(
+              "\n                                    No tienes un buen navegador.\n                                "
+            ),
+          ]
+        ),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticStyle: { display: "none" } }, [
+      _c("label", [_vm._v("Color")]),
+      _vm._v(" "),
+      _c("input", { attrs: { type: "color", id: "color" } }),
+      _vm._v(" "),
+      _c("label", [_vm._v("Tamaño Puntero")]),
+      _vm._v(" "),
+      _c("input", {
+        attrs: {
+          type: "range",
+          id: "puntero",
+          min: "1",
+          default: "1",
+          max: "5",
+          width: "10%",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row", staticStyle: { display: "none" } }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("textarea", {
+          staticClass: "form-control",
+          attrs: { id: "draw-dataUrl", rows: "5" },
+        }),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "contenedor", staticStyle: { display: "none" } },
+      [
+        _c("div", { staticClass: "col-md-12" }, [
+          _c("img", {
+            attrs: {
+              id: "draw-image",
+              src: "",
+              alt: "Tu Imagen aparecera Aqui!",
+            },
+          }),
+        ]),
+      ]
+    )
   },
   function () {
     var _vm = this

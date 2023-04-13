@@ -356,11 +356,18 @@ class api extends Controller
         $tratamientoM->costo = $request->costo;
         $tratamientoM->abono = $request->abono;
         $tratamientoM->pago = $request->pago;
-        $tratamientoM->firma = $request->firma;
+        $tratamientoM->firma = "";
         $tratamientoM->paciente_id = $request->idPaciente;
         $tratamientoM->user_id = $request->idUsuario;
 
         $tratamientoM->save();
 
+    }
+
+    public function actualiza_firma(Request $request){
+        $id = $request->id_tratamiento;
+        $firma = $request->firma;
+
+        Tratamiento::where('id', $id)->update(['firma' => $firma]);
     }
 }
