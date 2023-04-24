@@ -8,7 +8,12 @@
                         <a style="cursor: pointer; text-decoration: underline" @click="mostrarDrop(false)">Cancelar</a>
                     </div>
                     <div v-else>
-                        <img :src="paciente.foto ? 'images/pacientes/' + paciente.foto : 'images/' + imagen_paciente" class="rounded-circle" width="150"><br>
+                        <img :src="paciente.foto ? 'images/pacientes/' + paciente.foto : 'images/' + imagen_paciente" 
+                        class="rounded-circle" 
+                        style="object-fit: cover; object-position: center; width: 150px; height: 150px;" 
+                        alt="Imagen del paciente">
+
+                        <br>
                         <a style="cursor: pointer; text-decoration: underline" @click="mostrarDrop(true)">Cambiar Foto</a>
                     </div>
 

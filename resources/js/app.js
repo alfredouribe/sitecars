@@ -8,6 +8,7 @@ require('./bootstrap');
 
 import VueGoodTablePlugin from 'vue-good-table';
 import 'vue-good-table/dist/vue-good-table.css'
+import { setupCalendar, Calendar, DatePicker } from 'v-calendar';
 
 window.Vue = require('vue').default;
 
@@ -35,12 +36,15 @@ Vue.component('antecedente-patologico-heredofamiliar', require('./components/APa
 Vue.component('antecedente-patologico-personal', require('./components/APatologicoPersonal.vue').default);
 Vue.component('antecedente-personal-no-patologico', require('./components/APersonalNoPatologico.vue').default);
 Vue.component('tratamientos-component', require('./components/TratamiendosComponent.vue').default);
+Vue.component('calendar-component', require('./components/CalendarComponent.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 Vue.use(VueGoodTablePlugin);
+Vue.component('v-calendar', Calendar);
+Vue.component('v-date-picker', DatePicker);
 const app = new Vue({
     el: '#app',
 });

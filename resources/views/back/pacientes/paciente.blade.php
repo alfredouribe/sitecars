@@ -39,7 +39,7 @@
 					<a class="nav-link" id="pills-setting-tab" data-bs-toggle="pill" href="#tratamientos" role="tab" aria-controls="pills-setting" aria-selected="false" tabindex="-1">Tratamientos</a>
 				</li>
 				<li class="nav-item" role="presentation">
-					<a class="nav-link" id="pills-setting-tab" data-bs-toggle="pill" href="#previous-month" role="tab" aria-controls="pills-setting" aria-selected="false" tabindex="-1">Citas</a>
+					<a class="nav-link" id="pills-setting-tab" data-bs-toggle="pill" href="#citas" role="tab" aria-controls="pills-setting" aria-selected="false" tabindex="-1">Citas</a>
 				</li>
 			</ul>
 			<!-- Tabs -->
@@ -110,6 +110,10 @@
 
 				<div class="tab-pane fade" id="tratamientos" role="tabpanel" aria-labelledby="pills-setting-tab">
 					<tratamientos-component id='{{ $paciente[0]->id}}' idusuario='{{Auth::user()->id}}'></tratamientos-component>
+				</div>
+
+				<div class="tab-pane fade" id="citas" role="tabpanel" aria-labelledby="pills-setting-tab">
+					<calendar-component id='{{ $paciente[0]->id}}' idusuario='{{Auth::user()->id}}'></calendar-component>
 				</div>
 			</div>
 		</div>
