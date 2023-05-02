@@ -292,6 +292,7 @@
             },
             formatearFecha(fechaOriginal) {
                 const fecha = new Date(fechaOriginal)
+                fecha.setDate(fecha.getDate() + 1); // suma un día a la fecha
                 const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
                 return fecha.toLocaleDateString('es-ES', opciones)
             }

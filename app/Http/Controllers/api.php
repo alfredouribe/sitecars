@@ -15,6 +15,7 @@ use App\Models\AntecedentePatologicoHeredoFamiliar;
 use App\Models\AntecedentePatologicoPersonal;
 use App\Models\AntecedentePersonalNoPatologico;
 use App\Models\Tratamiento;
+use App\Models\CitasPaciente;
 
 
 class api extends Controller
@@ -369,5 +370,62 @@ class api extends Controller
         $firma = $request->firma;
 
         Tratamiento::where('id', $id)->update(['firma' => $firma]);
+    }
+
+    public function genera_cita(Request $request){
+        $cita = new CitasPaciente;
+        $cita->paciente_id = $request->paciente_id;
+        $cita->user_id = $request->user_id;
+        $cita->fecha = $request->fecha;
+        $cita->motivo = $request->motivo;
+
+        $cita->save();
+    }
+
+    public function consulta_citas(Request $request){
+        $paciente_id = $request->paciente_id;
+
+        $citas = CitasPaciente::where("paciente_id", "=", "$paciente_id")->orderBy('fecha')->get();
+
+        $result = [];
+        $i = 0;
+        foreach ($citas as $cita) {
+            switch($cita->estatus){
+                case "GENERADA":
+                    $class="bg-primary text-white";
+                break;
+
+                case "CONCRETADA":
+                    $class="bg-success text-white";
+                break;
+
+                case "CANCELADA":
+                    $class="bg-danger text-white";
+                break;
+
+                case "POSPUESTA":
+                    $class="bg-warning";
+                break;
+
+                default:
+                    $class="bg-info";
+                break;
+            }
+
+            $item = [
+                'key' => $i,
+                'customData' => [
+                    'title' => date("h:i A", strtotime($cita->fecha)) . " " . $cita->motivo,
+                    'class' => $class,
+                    'id' => $cita->id
+                ],
+                'dates' => $cita->fecha,
+            ];
+
+            array_push($result, $item);
+            $i++;
+        }
+
+        return $result;
     }
 }

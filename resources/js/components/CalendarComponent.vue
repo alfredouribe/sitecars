@@ -1,41 +1,71 @@
 <template>
-	<div class="text-center section">
-	  <h2 class="h2">Custom Calendars</h2>
-	  <p class="text-lg font-medium text-gray-600 mb-6">
-		Roll your own calendars using scoped slots
-	  </p>
-	  <v-calendar
-		class="custom-calendar max-w-full"
-		:masks="masks"
-		:attributes="attributes"
-		disable-page-swipe
-		is-expanded
-	  >
-		<template v-slot:day-content="{ day, attributes }">
-		  <div class="flex flex-col h-full z-10 overflow-hidden">
-			<span class="day-label text-sm text-gray-900">{{ day.day }}</span>
-			<div class="flex-grow overflow-y-auto overflow-x-auto">
-			  <p
-				v-for="attr in attributes"
-				:key="attr.key"
-				class="text-xs leading-tight rounded-sm p-1 mt-0 mb-1"
-				:class="attr.customData.class"
-			  >
-				{{ attr.customData.title }}
-			  </p>
+	<div class="section">
+	  <h2 class="h2 text-center ">Citas del Paciente</h2>
+	  	
+		<div class="row">
+			<div class="col-md-6" style="margin-bottom: 24px">
+				<form v-on:submit.prevent="genera_cita" id="form_citas">
+					<h3>Crear Cita</h3>
+
+					<div class="mb-3">
+						<label for="motivo" class="form-label">Motivo</label>
+						<input type="text" class="form-control" id="motivo" aria-describedby="motivo" v-model="motivo" maxlength="50" required>
+					</div>
+
+					<div class="mb-3">
+						<label for="cita" class="form-label">Fecha y Hora</label>
+						<input type="datetime-local" class="form-control" id="cita" aria-describedby="cita" v-model="fecha_cita">
+					</div>
+
+					<button type="submit" class="btn btn-primary">Guardar</button>
+				</form>
 			</div>
-		  </div>
-		</template>
-	  </v-calendar>
+
+			<div class="col-md-12">
+				<v-calendar
+					class="custom-calendar max-w-full"
+					:masks="masks"
+					:attributes="attributes"
+					disable-page-swipe
+					is-expanded
+				>
+					<template v-slot:day-content="{ day, attributes }">
+						<div class="flex flex-col h-full z-10 overflow-hidden">
+							<span class="day-label text-sm text-gray-900">{{ day.day }}</span>
+							<div class="flex-grow overflow-y-auto overflow-x-auto">
+							<p
+								v-for="attr in attributes"
+								:key="attr.key"
+								class="text-xs leading-tight rounded-sm p-1 mt-0 mb-1"
+								:class="attr.customData.class"
+
+								style="cursor: pointer"
+							>
+								{{ attr.customData.title }}
+							</p>
+							</div>
+						</div>
+					</template>
+				</v-calendar>
+			</div>
+		</div>
 	</div>
   </template>
   
   <script>
+import axios from 'axios';
+
   export default {
+	props: {
+		id: 0,
+		idusuario: 0
+	},
 	data() {
 	  const month = new Date().getMonth();
 	  const year = new Date().getFullYear();
 	  return {
+		fecha_cita: '',
+		motivo: '',
 		masks: {
 		  weekdays: 'WWW',
 		},
@@ -48,25 +78,39 @@
 			},
 			dates: [new Date(year, month, 2)],
 		  },
-		  {
-			key: 2,
-			customData: {
-			  title: "10:00 am Revisión matutina",
-			  class: 'bg-primary',
-			},
-			dates: [new Date(year, month, 5)],
-		  },
-		  {
-			key: 4,
-			customData: {
-			  title: '1:00 pm Revisión vespertina',
-			  class: 'bg-info',
-			},
-			dates: [new Date(year, month, 5)],
-		  }
 		],
 	  };
 	},
+	methods: {
+		genera_cita(){
+			let params = {
+				motivo: this.motivo,
+				fecha: this.fecha_cita,
+				paciente_id: this.id,
+				user_id: this.idusuario
+			}
+
+			axios.post("/api/genera_cita/", params)
+			.then( res => {
+				this.motivo = ""
+				this.fecha = ""
+				this.consulta_citas()
+			})
+		},
+		consulta_citas(){
+			let params = {
+				paciente_id: this.id
+			}
+
+			axios.post("/api/consulta_citas", params)
+			.then( res => {
+				this.attributes = res.data
+			})
+		}
+	},
+	mounted(){
+		this.consulta_citas()
+	}
   };
   </script>
 

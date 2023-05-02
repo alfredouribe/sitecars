@@ -6176,6 +6176,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -6208,11 +6210,40 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    id: 0,
+    idusuario: 0
+  },
   data: function data() {
     var month = new Date().getMonth();
     var year = new Date().getFullYear();
     return {
+      fecha_cita: '',
+      motivo: '',
       masks: {
         weekdays: 'WWW'
       },
@@ -6223,22 +6254,39 @@ __webpack_require__.r(__webpack_exports__);
           "class": 'bg-primary'
         },
         dates: [new Date(year, month, 2)]
-      }, {
-        key: 2,
-        customData: {
-          title: "10:00 am Revisión matutina",
-          "class": 'bg-primary'
-        },
-        dates: [new Date(year, month, 5)]
-      }, {
-        key: 4,
-        customData: {
-          title: '1:00 pm Revisión vespertina',
-          "class": 'bg-info'
-        },
-        dates: [new Date(year, month, 5)]
       }]
     };
+  },
+  methods: {
+    genera_cita: function genera_cita() {
+      var _this = this;
+
+      var params = {
+        motivo: this.motivo,
+        fecha: this.fecha_cita,
+        paciente_id: this.id,
+        user_id: this.idusuario
+      };
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post("/api/genera_cita/", params).then(function (res) {
+        _this.motivo = "";
+        _this.fecha = "";
+
+        _this.consulta_citas();
+      });
+    },
+    consulta_citas: function consulta_citas() {
+      var _this2 = this;
+
+      var params = {
+        paciente_id: this.id
+      };
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post("/api/consulta_citas", params).then(function (res) {
+        _this2.attributes = res.data;
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.consulta_citas();
   }
 });
 
@@ -7599,6 +7647,8 @@ __webpack_require__.r(__webpack_exports__);
     },
     formatearFecha: function formatearFecha(fechaOriginal) {
       var fecha = new Date(fechaOriginal);
+      fecha.setDate(fecha.getDate() + 1); // suma un día a la fecha
+
       var opciones = {
         weekday: 'long',
         year: 'numeric',
@@ -45645,77 +45695,181 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "text-center section" },
-    [
-      _c("h2", { staticClass: "h2" }, [_vm._v("Custom Calendars")]),
-      _vm._v(" "),
-      _c("p", { staticClass: "text-lg font-medium text-gray-600 mb-6" }, [
-        _vm._v("\n\tRoll your own calendars using scoped slots\n  "),
-      ]),
-      _vm._v(" "),
-      _c("v-calendar", {
-        staticClass: "custom-calendar max-w-full",
-        attrs: {
-          masks: _vm.masks,
-          attributes: _vm.attributes,
-          "disable-page-swipe": "",
-          "is-expanded": "",
-        },
-        scopedSlots: _vm._u([
-          {
-            key: "day-content",
-            fn: function (ref) {
-              var day = ref.day
-              var attributes = ref.attributes
-              return [
+  return _c("div", { staticClass: "section" }, [
+    _c("h2", { staticClass: "h2 text-center " }, [
+      _vm._v("Citas del Paciente"),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c(
+        "div",
+        { staticClass: "col-md-6", staticStyle: { "margin-bottom": "24px" } },
+        [
+          _c(
+            "form",
+            {
+              attrs: { id: "form_citas" },
+              on: {
+                submit: function ($event) {
+                  $event.preventDefault()
+                  return _vm.genera_cita.apply(null, arguments)
+                },
+              },
+            },
+            [
+              _c("h3", [_vm._v("Crear Cita")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "mb-3" }, [
                 _c(
-                  "div",
-                  { staticClass: "flex flex-col h-full z-10 overflow-hidden" },
-                  [
-                    _c(
-                      "span",
-                      { staticClass: "day-label text-sm text-gray-900" },
-                      [_vm._v(_vm._s(day.day))]
-                    ),
-                    _vm._v(" "),
+                  "label",
+                  { staticClass: "form-label", attrs: { for: "motivo" } },
+                  [_vm._v("Motivo")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.motivo,
+                      expression: "motivo",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "text",
+                    id: "motivo",
+                    "aria-describedby": "motivo",
+                    maxlength: "50",
+                    required: "",
+                  },
+                  domProps: { value: _vm.motivo },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.motivo = $event.target.value
+                    },
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "mb-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-label", attrs: { for: "cita" } },
+                  [_vm._v("Fecha y Hora")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.fecha_cita,
+                      expression: "fecha_cita",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "datetime-local",
+                    id: "cita",
+                    "aria-describedby": "cita",
+                  },
+                  domProps: { value: _vm.fecha_cita },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.fecha_cita = $event.target.value
+                    },
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c(
+                "button",
+                { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+                [_vm._v("Guardar")]
+              ),
+            ]
+          ),
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "col-md-12" },
+        [
+          _c("v-calendar", {
+            staticClass: "custom-calendar max-w-full",
+            attrs: {
+              masks: _vm.masks,
+              attributes: _vm.attributes,
+              "disable-page-swipe": "",
+              "is-expanded": "",
+            },
+            scopedSlots: _vm._u([
+              {
+                key: "day-content",
+                fn: function (ref) {
+                  var day = ref.day
+                  var attributes = ref.attributes
+                  return [
                     _c(
                       "div",
                       {
                         staticClass:
-                          "flex-grow overflow-y-auto overflow-x-auto",
+                          "flex flex-col h-full z-10 overflow-hidden",
                       },
-                      _vm._l(attributes, function (attr) {
-                        return _c(
-                          "p",
+                      [
+                        _c(
+                          "span",
+                          { staticClass: "day-label text-sm text-gray-900" },
+                          [_vm._v(_vm._s(day.day))]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
                           {
-                            key: attr.key,
                             staticClass:
-                              "text-xs leading-tight rounded-sm p-1 mt-0 mb-1",
-                            class: attr.customData.class,
+                              "flex-grow overflow-y-auto overflow-x-auto",
                           },
-                          [
-                            _vm._v(
-                              "\n\t\t\t" +
-                                _vm._s(attr.customData.title) +
-                                "\n\t\t  "
-                            ),
-                          ]
-                        )
-                      }),
-                      0
+                          _vm._l(attributes, function (attr) {
+                            return _c(
+                              "p",
+                              {
+                                key: attr.key,
+                                staticClass:
+                                  "text-xs leading-tight rounded-sm p-1 mt-0 mb-1",
+                                class: attr.customData.class,
+                                staticStyle: { cursor: "pointer" },
+                              },
+                              [
+                                _vm._v(
+                                  "\n\t\t\t\t\t\t\t" +
+                                    _vm._s(attr.customData.title) +
+                                    "\n\t\t\t\t\t\t"
+                                ),
+                              ]
+                            )
+                          }),
+                          0
+                        ),
+                      ]
                     ),
                   ]
-                ),
-              ]
-            },
-          },
-        ]),
-      }),
-    ],
-    1
-  )
+                },
+              },
+            ]),
+          }),
+        ],
+        1
+      ),
+    ]),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

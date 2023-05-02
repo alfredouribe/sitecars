@@ -40,4 +40,6 @@ Route::post('save_personal_no_patologico',['App\Http\Controllers\api', 'save_per
 Route::post('get_tratamientos',['App\Http\Controllers\api', 'get_tratamientos'])->name('get_tratamientos');
 Route::post('save_tratamiento',['App\Http\Controllers\api', 'save_tratamiento'])->name('save_tratamiento');
 Route::post('actualiza_firma',['App\Http\Controllers\api', 'actualiza_firma'])->name('actualiza_firma');
+Route::post('genera_cita',['App\Http\Controllers\api', 'genera_cita'])->name('genera_cita');
+Route::post('consulta_citas',['App\Http\Controllers\api', 'consulta_citas'])->name('consulta_citas');
 //cambia_status_usuario_cliente update_paciente

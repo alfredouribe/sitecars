@@ -15,4 +15,5 @@ mix.js('resources/js/app.js', 'public/js')
     .vue()
     .sass('resources/sass/app.scss', 'public/css')
     .copy('resources/assets', 'public/assets')
+    .copy('resources/css', 'public/css')
     .copy('resources/images', 'public/images');
