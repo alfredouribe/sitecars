@@ -6891,6 +6891,231 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/OdontogramaComponent.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/OdontogramaComponent.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {},
+  props: {
+    id: 0,
+    idusuario: 0
+  },
+  data: function data() {
+    return {
+      odontograma: {
+        id: '',
+        cuadrante: '',
+        diente: '',
+        codigo_1: '',
+        codigo_2: '',
+        codigo_3: '',
+        codigo_4: ''
+      },
+      msg: '',
+      odontogramas: []
+    };
+  },
+  mounted: function mounted() {
+    this.get_odontograma();
+    $(".alert-danger").toggle();
+  },
+  methods: {
+    get_odontograma: function get_odontograma() {
+      var _this = this;
+
+      var params = {
+        paciente_id: this.id
+      };
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post("/api/get_odontograma", params).then(function (res) {
+        _this.odontogramas = res.data;
+      });
+    },
+    guarda_odontograma: function guarda_odontograma() {
+      var _this2 = this;
+
+      var params = {
+        cuadrante: this.odontograma.cuadrante,
+        diente: this.odontograma.diente,
+        paciente_id: this.id,
+        user_id: this.idusuario
+      };
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post("/api/guarda_odontograma", params).then(function (res) {
+        if (res.data.status == "error") {
+          _this2.msg = res.data.msg;
+          $(".alert-danger").toggle();
+        } else {
+          window.location.reload();
+
+          _this2.get_odontograma();
+        }
+
+        _this2.odontograma = {};
+      });
+    },
+    cambia_color: function cambia_color(id, num, valor) {
+      var _this3 = this;
+
+      var params = {
+        id: id,
+        num: num,
+        color: valor
+      };
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post("/api/cambia_color", params).then(function (res) {
+        _this3.get_odontograma();
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PacienteInfoGeneral.vue?vue&type=script&lang=js&":
 /*!**************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PacienteInfoGeneral.vue?vue&type=script&lang=js& ***!
@@ -7671,83 +7896,87 @@ setTimeout(function () {
 
 
     var canvas = document.getElementById("draw-canvas");
-    var ctx = canvas.getContext("2d"); // Mandamos llamar a los Elemetos interactivos de la Interfaz HTML
 
-    var drawText = document.getElementById("draw-dataUrl");
-    var drawImage = document.getElementById("draw-image");
-    var clearBtn = document.getElementById("draw-clearBtn");
-    var submitBtn = document.getElementById("draw-submitBtn");
-    clearBtn.addEventListener("click", function (e) {
-      // Definimos que pasa cuando el boton draw-clearBtn es pulsado
-      clearCanvas();
-      drawImage.setAttribute("src", "");
-    }, false); // Definimos que pasa cuando el boton draw-submitBtn es pulsado
+    if (canvas) {
+      var ctx = canvas.getContext("2d"); // Mandamos llamar a los Elemetos interactivos de la Interfaz HTML
 
-    submitBtn.addEventListener("click", function (e) {
-      var dataUrl = canvas.toDataURL();
-      drawText.innerHTML = dataUrl;
-      drawImage.setAttribute("src", dataUrl);
-    }, false); // Activamos MouseEvent para nuestra pagina
+      var drawText = document.getElementById("draw-dataUrl");
+      var drawImage = document.getElementById("draw-image");
+      var clearBtn = document.getElementById("draw-clearBtn");
+      var submitBtn = document.getElementById("draw-submitBtn");
+      clearBtn.addEventListener("click", function (e) {
+        // Definimos que pasa cuando el boton draw-clearBtn es pulsado
+        clearCanvas();
+        drawImage.setAttribute("src", "");
+      }, false); // Definimos que pasa cuando el boton draw-submitBtn es pulsado
 
-    var drawing = false;
-    var mousePos = {
-      x: 0,
-      y: 0
-    };
-    var lastPos = mousePos;
-    canvas.addEventListener("mousedown", function (e) {
-      /*
+      submitBtn.addEventListener("click", function (e) {
+        var dataUrl = canvas.toDataURL();
+        drawText.innerHTML = dataUrl;
+        drawImage.setAttribute("src", dataUrl);
+      }, false); // Activamos MouseEvent para nuestra pagina
+
+      var drawing = false;
+      var mousePos = {
+        x: 0,
+        y: 0
+      };
+      var lastPos = mousePos;
+      canvas.addEventListener("mousedown", function (e) {
+        /*
         Mas alla de solo llamar a una funcion, usamos function (e){...}
         para mas versatilidad cuando ocurre un evento
-      */
-      var tint = document.getElementById("color");
-      var punta = document.getElementById("puntero");
-      console.log(e);
-      drawing = true;
-      lastPos = getMousePos(canvas, e);
-    }, false);
-    canvas.addEventListener("mouseup", function (e) {
-      drawing = false;
-    }, false);
-    canvas.addEventListener("mousemove", function (e) {
-      mousePos = getMousePos(canvas, e);
-    }, false); // Activamos touchEvent para nuestra pagina
+        */
+        var tint = document.getElementById("color");
+        var punta = document.getElementById("puntero");
+        console.log(e);
+        drawing = true;
+        lastPos = getMousePos(canvas, e);
+      }, false);
+      canvas.addEventListener("mouseup", function (e) {
+        drawing = false;
+      }, false);
+      canvas.addEventListener("mousemove", function (e) {
+        mousePos = getMousePos(canvas, e);
+      }, false); // Activamos touchEvent para nuestra pagina
 
-    canvas.addEventListener("touchstart", function (e) {
-      mousePos = getTouchPos(canvas, e);
-      console.log(mousePos);
-      e.preventDefault(); // Prevent scrolling when touching the canvas
+      canvas.addEventListener("touchstart", function (e) {
+        mousePos = getTouchPos(canvas, e);
+        console.log(mousePos);
+        e.preventDefault(); // Prevent scrolling when touching the canvas
 
-      var touch = e.touches[0];
-      var mouseEvent = new MouseEvent("mousedown", {
-        clientX: touch.clientX,
-        clientY: touch.clientY
-      });
-      canvas.dispatchEvent(mouseEvent);
-    }, false);
-    canvas.addEventListener("touchend", function (e) {
-      e.preventDefault(); // Prevent scrolling when touching the canvas
+        var touch = e.touches[0];
+        var mouseEvent = new MouseEvent("mousedown", {
+          clientX: touch.clientX,
+          clientY: touch.clientY
+        });
+        canvas.dispatchEvent(mouseEvent);
+      }, false);
+      canvas.addEventListener("touchend", function (e) {
+        e.preventDefault(); // Prevent scrolling when touching the canvas
 
-      var mouseEvent = new MouseEvent("mouseup", {});
-      canvas.dispatchEvent(mouseEvent);
-    }, false);
-    canvas.addEventListener("touchleave", function (e) {
-      // Realiza el mismo proceso que touchend en caso de que el dedo se deslice fuera del canvas
-      e.preventDefault(); // Prevent scrolling when touching the canvas
+        var mouseEvent = new MouseEvent("mouseup", {});
+        canvas.dispatchEvent(mouseEvent);
+      }, false);
+      canvas.addEventListener("touchleave", function (e) {
+        // Realiza el mismo proceso que touchend en caso de que el dedo se deslice fuera del canvas
+        e.preventDefault(); // Prevent scrolling when touching the canvas
 
-      var mouseEvent = new MouseEvent("mouseup", {});
-      canvas.dispatchEvent(mouseEvent);
-    }, false);
-    canvas.addEventListener("touchmove", function (e) {
-      e.preventDefault(); // Prevent scrolling when touching the canvas
+        var mouseEvent = new MouseEvent("mouseup", {});
+        canvas.dispatchEvent(mouseEvent);
+      }, false);
+      canvas.addEventListener("touchmove", function (e) {
+        e.preventDefault(); // Prevent scrolling when touching the canvas
 
-      var touch = e.touches[0];
-      var mouseEvent = new MouseEvent("mousemove", {
-        clientX: touch.clientX,
-        clientY: touch.clientY
-      });
-      canvas.dispatchEvent(mouseEvent);
-    }, false); // Get the position of the mouse relative to the canvas
+        var touch = e.touches[0];
+        var mouseEvent = new MouseEvent("mousemove", {
+          clientX: touch.clientX,
+          clientY: touch.clientY
+        });
+        canvas.dispatchEvent(mouseEvent);
+      }, false);
+    } // Get the position of the mouse relative to the canvas
+
 
     function getMousePos(canvasDom, mouseEvent) {
       var rect = canvasDom.getBoundingClientRect();
@@ -8019,6 +8248,7 @@ Vue.component('antecedente-patologico-personal', (__webpack_require__(/*! ./comp
 Vue.component('antecedente-personal-no-patologico', (__webpack_require__(/*! ./components/APersonalNoPatologico.vue */ "./resources/js/components/APersonalNoPatologico.vue")["default"]));
 Vue.component('tratamientos-component', (__webpack_require__(/*! ./components/TratamiendosComponent.vue */ "./resources/js/components/TratamiendosComponent.vue")["default"]));
 Vue.component('calendar-component', (__webpack_require__(/*! ./components/CalendarComponent.vue */ "./resources/js/components/CalendarComponent.vue")["default"]));
+Vue.component('odontograma-component', (__webpack_require__(/*! ./components/OdontogramaComponent.vue */ "./resources/js/components/OdontogramaComponent.vue")["default"]));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -41903,6 +42133,45 @@ component.options.__file = "resources/js/components/ExampleComponent.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/OdontogramaComponent.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/OdontogramaComponent.vue ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _OdontogramaComponent_vue_vue_type_template_id_ffed7e66_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./OdontogramaComponent.vue?vue&type=template&id=ffed7e66&scoped=true& */ "./resources/js/components/OdontogramaComponent.vue?vue&type=template&id=ffed7e66&scoped=true&");
+/* harmony import */ var _OdontogramaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OdontogramaComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/OdontogramaComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _OdontogramaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _OdontogramaComponent_vue_vue_type_template_id_ffed7e66_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _OdontogramaComponent_vue_vue_type_template_id_ffed7e66_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "ffed7e66",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/OdontogramaComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/PacienteInfoGeneral.vue":
 /*!*********************************************************!*\
   !*** ./resources/js/components/PacienteInfoGeneral.vue ***!
@@ -42205,6 +42474,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/OdontogramaComponent.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/OdontogramaComponent.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_OdontogramaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./OdontogramaComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/OdontogramaComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_OdontogramaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/PacienteInfoGeneral.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************!*\
   !*** ./resources/js/components/PacienteInfoGeneral.vue?vue&type=script&lang=js& ***!
@@ -42496,6 +42781,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ExampleComponent.vue?vue&type=template&id=299e239e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/OdontogramaComponent.vue?vue&type=template&id=ffed7e66&scoped=true&":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/js/components/OdontogramaComponent.vue?vue&type=template&id=ffed7e66&scoped=true& ***!
+  \*****************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OdontogramaComponent_vue_vue_type_template_id_ffed7e66_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OdontogramaComponent_vue_vue_type_template_id_ffed7e66_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_OdontogramaComponent_vue_vue_type_template_id_ffed7e66_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./OdontogramaComponent.vue?vue&type=template&id=ffed7e66&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/OdontogramaComponent.vue?vue&type=template&id=ffed7e66&scoped=true&");
 
 
 /***/ }),
@@ -47091,6 +47393,846 @@ var staticRenderFns = [
                 "\n                    I'm an example component.\n                "
               ),
             ]),
+          ]),
+        ]),
+      ]),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/OdontogramaComponent.vue?vue&type=template&id=ffed7e66&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/OdontogramaComponent.vue?vue&type=template&id=ffed7e66&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticStyle: { "margin-top": "24px" } },
+    [
+      _c("div", { staticClass: "row mb-3" }, [
+        _c("div", { staticClass: "col-md-3" }, [
+          _c(
+            "form",
+            {
+              on: {
+                submit: function ($event) {
+                  $event.preventDefault()
+                  return _vm.guarda_odontograma.apply(null, arguments)
+                },
+              },
+            },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "alert alert-danger alert-dismissible fade show",
+                  attrs: { role: "alert" },
+                },
+                [
+                  _c("strong", [_vm._v("Error")]),
+                  _vm._v(" " + _vm._s(_vm.msg) + "\n                    "),
+                  _c("button", {
+                    staticClass: "btn-close",
+                    attrs: {
+                      type: "button",
+                      "data-bs-dismiss": "alert",
+                      "aria-label": "Close",
+                    },
+                  }),
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "mb-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-label", attrs: { for: "cuadrante" } },
+                  [_vm._v("Cuadrante")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.odontograma.cuadrante,
+                      expression: "odontograma.cuadrante",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "number",
+                    min: "0",
+                    step: "1",
+                    max: "8",
+                    id: "cuadrante",
+                    "aria-describedby": "cuadrante",
+                    required: "",
+                  },
+                  domProps: { value: _vm.odontograma.cuadrante },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.odontograma,
+                        "cuadrante",
+                        $event.target.value
+                      )
+                    },
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "mb-3" }, [
+                _c(
+                  "label",
+                  { staticClass: "form-label", attrs: { for: "diente" } },
+                  [_vm._v("No. Diente")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.odontograma.diente,
+                      expression: "odontograma.diente",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "number",
+                    min: "0",
+                    step: "1",
+                    id: "diente",
+                    "aria-describedby": "diente",
+                  },
+                  domProps: { value: _vm.odontograma.diente },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.odontograma, "diente", $event.target.value)
+                    },
+                  },
+                }),
+              ]),
+              _vm._v(" "),
+              _c(
+                "button",
+                { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+                [_vm._v("Guardar")]
+              ),
+            ]
+          ),
+        ]),
+        _vm._v(" "),
+        _vm._m(0),
+      ]),
+      _vm._v(" "),
+      _vm._l(_vm.odontogramas, function (odontograma, index_1) {
+        return _c(
+          "div",
+          {
+            key: index_1,
+            staticClass: "row",
+            staticStyle: { "margin-bottom": "10px" },
+          },
+          [
+            _vm._l(odontograma, function (item, index) {
+              return _c(
+                "div",
+                { key: index, staticClass: "col-md-2 text-center" },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "row",
+                      staticStyle: { float: "left!important" },
+                    },
+                    [
+                      _c("p", [
+                        _vm._v(_vm._s(item.cuadrante + "" + item.diente)),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-12 border" }, [
+                        _c(
+                          "select",
+                          {
+                            staticClass: "form-control",
+                            style: "background-color:" + item.codigo_1,
+                            on: {
+                              change: function ($event) {
+                                return _vm.cambia_color(
+                                  item.id,
+                                  1,
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          },
+                          [
+                            _c("option", { attrs: { value: "NULL" } }, [
+                              _vm._v("_____"),
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                staticStyle: {
+                                  "background-color": "black",
+                                  color: "white",
+                                },
+                                attrs: { value: "black" },
+                                domProps: {
+                                  selected:
+                                    item.codigo_1 == "black" ? "true" : "",
+                                },
+                              },
+                              [_vm._v("Negro")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                staticStyle: { "background-color": "blue" },
+                                attrs: { value: "blue" },
+                                domProps: {
+                                  selected:
+                                    item.codigo_1 == "blue" ? "true" : "",
+                                },
+                              },
+                              [_vm._v("Azul")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                staticStyle: { "background-color": "yellow" },
+                                attrs: { value: "yellow" },
+                                domProps: {
+                                  selected:
+                                    item.codigo_1 == "yellow" ? "true" : "",
+                                },
+                              },
+                              [_vm._v("Amarillo")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                staticStyle: { "background-color": "orange" },
+                                attrs: { value: "orange" },
+                                domProps: {
+                                  selected:
+                                    item.codigo_1 == "orange" ? "true" : "",
+                                },
+                              },
+                              [_vm._v("Naranja")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                staticStyle: { "background-color": "green" },
+                                attrs: { value: "green" },
+                                domProps: {
+                                  selected:
+                                    item.codigo_1 == "green" ? "true" : "",
+                                },
+                              },
+                              [_vm._v("Verde")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                staticStyle: { "background-color": "brown" },
+                                attrs: { value: "brown" },
+                                domProps: {
+                                  selected:
+                                    item.codigo_1 == "brown" ? "true" : "",
+                                },
+                              },
+                              [_vm._v("Café")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                staticStyle: { "background-color": "red" },
+                                attrs: { value: "red" },
+                                domProps: {
+                                  selected:
+                                    item.codigo_1 == "red" ? "true" : "",
+                                },
+                              },
+                              [_vm._v("Rojo")]
+                            ),
+                          ]
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-4 border" }, [
+                        _c(
+                          "select",
+                          {
+                            staticClass: "form-control",
+                            style: "background-color:" + item.codigo_2,
+                            on: {
+                              change: function ($event) {
+                                return _vm.cambia_color(
+                                  item.id,
+                                  2,
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          },
+                          [
+                            _c("option", { attrs: { value: "NULL" } }, [
+                              _vm._v("_____"),
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                staticStyle: {
+                                  "background-color": "black",
+                                  color: "white",
+                                },
+                                attrs: { value: "black" },
+                                domProps: {
+                                  selected:
+                                    item.codigo_2 == "black" ? "true" : "",
+                                },
+                              },
+                              [_vm._v("Negro")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                staticStyle: { "background-color": "blue" },
+                                attrs: { value: "blue" },
+                                domProps: {
+                                  selected:
+                                    item.codigo_2 == "blue" ? "true" : "",
+                                },
+                              },
+                              [_vm._v("Azul")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                staticStyle: { "background-color": "yellow" },
+                                attrs: { value: "yellow" },
+                                domProps: {
+                                  selected:
+                                    item.codigo_2 == "yellow" ? "true" : "",
+                                },
+                              },
+                              [_vm._v("Amarillo")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                staticStyle: { "background-color": "orange" },
+                                attrs: { value: "orange" },
+                                domProps: {
+                                  selected:
+                                    item.codigo_2 == "orange" ? "true" : "",
+                                },
+                              },
+                              [_vm._v("Naranja")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                staticStyle: { "background-color": "green" },
+                                attrs: { value: "green" },
+                                domProps: {
+                                  selected:
+                                    item.codigo_2 == "green" ? "true" : "",
+                                },
+                              },
+                              [_vm._v("Verde")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                staticStyle: { "background-color": "brown" },
+                                attrs: { value: "brown" },
+                                domProps: {
+                                  selected:
+                                    item.codigo_2 == "brown" ? "true" : "",
+                                },
+                              },
+                              [_vm._v("Café")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                staticStyle: { "background-color": "red" },
+                                attrs: { value: "red" },
+                                domProps: {
+                                  selected:
+                                    item.codigo_2 == "red" ? "true" : "",
+                                },
+                              },
+                              [_vm._v("Rojo")]
+                            ),
+                          ]
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-4 border" }, [
+                        _c(
+                          "select",
+                          {
+                            staticClass: "form-control",
+                            style: "background-color:" + item.codigo_3,
+                            on: {
+                              change: function ($event) {
+                                return _vm.cambia_color(
+                                  item.id,
+                                  3,
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          },
+                          [
+                            _c("option", { attrs: { value: "NULL" } }, [
+                              _vm._v("_____"),
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                staticStyle: {
+                                  "background-color": "black",
+                                  color: "white",
+                                },
+                                attrs: { value: "black" },
+                                domProps: {
+                                  selected:
+                                    item.codigo_3 == "black" ? "true" : "",
+                                },
+                              },
+                              [_vm._v("Negro")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                staticStyle: { "background-color": "blue" },
+                                attrs: { value: "blue" },
+                                domProps: {
+                                  selected:
+                                    item.codigo_3 == "blue" ? "true" : "",
+                                },
+                              },
+                              [_vm._v("Azul")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                staticStyle: { "background-color": "yellow" },
+                                attrs: { value: "yellow" },
+                                domProps: {
+                                  selected:
+                                    item.codigo_3 == "yellow" ? "true" : "",
+                                },
+                              },
+                              [_vm._v("Amarillo")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                staticStyle: { "background-color": "orange" },
+                                attrs: { value: "orange" },
+                                domProps: {
+                                  selected:
+                                    item.codigo_3 == "orange" ? "true" : "",
+                                },
+                              },
+                              [_vm._v("Naranja")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                staticStyle: { "background-color": "green" },
+                                attrs: { value: "green" },
+                                domProps: {
+                                  selected:
+                                    item.codigo_3 == "green" ? "true" : "",
+                                },
+                              },
+                              [_vm._v("Verde")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                staticStyle: { "background-color": "brown" },
+                                attrs: { value: "brown" },
+                                domProps: {
+                                  selected:
+                                    item.codigo_3 == "brown" ? "true" : "",
+                                },
+                              },
+                              [_vm._v("Café")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                staticStyle: { "background-color": "red" },
+                                attrs: { value: "red" },
+                                domProps: {
+                                  selected:
+                                    item.codigo_3 == "red" ? "true" : "",
+                                },
+                              },
+                              [_vm._v("Rojo")]
+                            ),
+                          ]
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-4 border" }, [
+                        _c(
+                          "select",
+                          {
+                            staticClass: "form-control",
+                            style: "background-color:" + item.codigo_4,
+                            on: {
+                              change: function ($event) {
+                                return _vm.cambia_color(
+                                  item.id,
+                                  4,
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          },
+                          [
+                            _c("option", { attrs: { value: "NULL" } }, [
+                              _vm._v("_____"),
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                staticStyle: {
+                                  "background-color": "black",
+                                  color: "white",
+                                },
+                                attrs: { value: "black" },
+                                domProps: {
+                                  selected:
+                                    item.codigo_4 == "black" ? "true" : "",
+                                },
+                              },
+                              [_vm._v("Negro")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                staticStyle: { "background-color": "blue" },
+                                attrs: { value: "blue" },
+                                domProps: {
+                                  selected:
+                                    item.codigo_4 == "blue" ? "true" : "",
+                                },
+                              },
+                              [_vm._v("Azul")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                staticStyle: { "background-color": "yellow" },
+                                attrs: { value: "yellow" },
+                                domProps: {
+                                  selected:
+                                    item.codigo_4 == "yellow" ? "true" : "",
+                                },
+                              },
+                              [_vm._v("Amarillo")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                staticStyle: { "background-color": "orange" },
+                                attrs: { value: "orange" },
+                                domProps: {
+                                  selected:
+                                    item.codigo_4 == "orange" ? "true" : "",
+                                },
+                              },
+                              [_vm._v("Naranja")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                staticStyle: { "background-color": "green" },
+                                attrs: { value: "green" },
+                                domProps: {
+                                  selected:
+                                    item.codigo_4 == "green" ? "true" : "",
+                                },
+                              },
+                              [_vm._v("Verde")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                staticStyle: { "background-color": "brown" },
+                                attrs: { value: "brown" },
+                                domProps: {
+                                  selected:
+                                    item.codigo_4 == "brown" ? "true" : "",
+                                },
+                              },
+                              [_vm._v("Café")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                staticStyle: { "background-color": "red" },
+                                attrs: { value: "red" },
+                                domProps: {
+                                  selected:
+                                    item.codigo_4 == "red" ? "true" : "",
+                                },
+                              },
+                              [_vm._v("Rojo")]
+                            ),
+                          ]
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-12 border" }, [
+                        _c(
+                          "select",
+                          {
+                            staticClass: "form-control",
+                            style: "background-color:" + item.codigo_5,
+                            on: {
+                              change: function ($event) {
+                                return _vm.cambia_color(
+                                  item.id,
+                                  5,
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          },
+                          [
+                            _c("option", { attrs: { value: "NULL" } }, [
+                              _vm._v("_____"),
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                staticStyle: {
+                                  "background-color": "black",
+                                  color: "white",
+                                },
+                                attrs: { value: "black" },
+                                domProps: {
+                                  selected:
+                                    item.codigo_5 == "black" ? "true" : "",
+                                },
+                              },
+                              [_vm._v("Negro")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                staticStyle: { "background-color": "blue" },
+                                attrs: { value: "blue" },
+                                domProps: {
+                                  selected:
+                                    item.codigo_5 == "blue" ? "true" : "",
+                                },
+                              },
+                              [_vm._v("Azul")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                staticStyle: { "background-color": "yellow" },
+                                attrs: { value: "yellow" },
+                                domProps: {
+                                  selected:
+                                    item.codigo_5 == "yellow" ? "true" : "",
+                                },
+                              },
+                              [_vm._v("Amarillo")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                staticStyle: { "background-color": "orange" },
+                                attrs: { value: "orange" },
+                                domProps: {
+                                  selected:
+                                    item.codigo_5 == "orange" ? "true" : "",
+                                },
+                              },
+                              [_vm._v("Naranja")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                staticStyle: { "background-color": "green" },
+                                attrs: { value: "green" },
+                                domProps: {
+                                  selected:
+                                    item.codigo_5 == "green" ? "true" : "",
+                                },
+                              },
+                              [_vm._v("Verde")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                staticStyle: { "background-color": "brown" },
+                                attrs: { value: "brown" },
+                                domProps: {
+                                  selected:
+                                    item.codigo_5 == "brown" ? "true" : "",
+                                },
+                              },
+                              [_vm._v("Café")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                staticStyle: { "background-color": "red" },
+                                attrs: { value: "red" },
+                                domProps: {
+                                  selected:
+                                    item.codigo_5 == "red" ? "true" : "",
+                                },
+                              },
+                              [_vm._v("Rojo")]
+                            ),
+                          ]
+                        ),
+                      ]),
+                    ]
+                  ),
+                ]
+              )
+            }),
+            _vm._v(" "),
+            _c("hr"),
+          ],
+          2
+        )
+      }),
+    ],
+    2
+  )
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-3" }, [
+      _c("table", { staticClass: "table" }, [
+        _c("thead", [
+          _c("tr", [
+            _c("th", [_vm._v("Código")]),
+            _vm._v(" "),
+            _c("th", [_vm._v("Restauración")]),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("tbody", [
+          _c("tr", [
+            _c("td", [_vm._v("Negro")]),
+            _vm._v(" "),
+            _c("td", [_vm._v("Extracción")]),
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("td", [_vm._v("Azul")]),
+            _vm._v(" "),
+            _c("td", [_vm._v("Amalgama")]),
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("td", [_vm._v("Amarillo")]),
+            _vm._v(" "),
+            _c("td", [_vm._v("Resina")]),
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("td", [_vm._v("Naranja")]),
+            _vm._v(" "),
+            _c("td", [_vm._v("Ionometro de Vidrio")]),
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("td", [_vm._v("Verde")]),
+            _vm._v(" "),
+            _c("td", [_vm._v("Sellador de Fosetas")]),
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("td", [_vm._v("Café")]),
+            _vm._v(" "),
+            _c("td", [_vm._v("Curación Temporal")]),
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("td", [_vm._v("Rojo")]),
+            _vm._v(" "),
+            _c("td", [_vm._v("Caries")]),
           ]),
         ]),
       ]),

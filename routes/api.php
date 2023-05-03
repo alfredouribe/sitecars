@@ -42,4 +42,7 @@ Route::post('save_tratamiento',['App\Http\Controllers\api', 'save_tratamiento'])
 Route::post('actualiza_firma',['App\Http\Controllers\api', 'actualiza_firma'])->name('actualiza_firma');
 Route::post('genera_cita',['App\Http\Controllers\api', 'genera_cita'])->name('genera_cita');
 Route::post('consulta_citas',['App\Http\Controllers\api', 'consulta_citas'])->name('consulta_citas');
+Route::post('guarda_odontograma',['App\Http\Controllers\api', 'guarda_odontograma'])->name('guarda_odontograma');
+Route::post('get_odontograma',['App\Http\Controllers\api', 'get_odontograma'])->name('get_odontograma');
+Route::post('cambia_color',['App\Http\Controllers\api', 'cambia_color'])->name('cambia_color');
 //cambia_status_usuario_cliente update_paciente

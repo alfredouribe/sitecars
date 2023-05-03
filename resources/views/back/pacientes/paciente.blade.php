@@ -12,14 +12,14 @@
 </ol>
 <div class="row">
 	<!-- Column -->
-	<div class="col-lg-4 col-xlg-3 col-md-5">
+	<div class="col-md-2">
 
 		<card-paciente-component id='{{ $paciente[0]->id}}' idusuario='{{Auth::user()->id}}'></card-paciente-component>
 					
 	</div>
 	<!-- Column -->
 	<!-- Column -->
-	<div class="col-lg-8 col-xlg-9 col-md-7">
+	<div class="col-md-10">
 		<div class="card">
 			<!-- Tabs -->
 			<ul class="nav nav-pills custom-pills" id="pills-tab" role="tablist">
@@ -30,7 +30,7 @@
 					<a class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" href="#antecedentes" role="tab" aria-controls="pills-profile" aria-selected="false" tabindex="-1">Antecedentes</a>
 				</li>
 				<li class="nav-item" role="presentation">
-					<a class="nav-link" id="pills-setting-tab" data-bs-toggle="pill" href="#previous-month" role="tab" aria-controls="pills-setting" aria-selected="false" tabindex="-1">Odontograma</a>
+					<a class="nav-link" id="pills-setting-tab" data-bs-toggle="pill" href="#odontograma" role="tab" aria-controls="pills-setting" aria-selected="false" tabindex="-1">Odontograma</a>
 				</li>
 				<li class="nav-item" role="presentation">
 					<a class="nav-link" id="pills-setting-tab" data-bs-toggle="pill" href="#previous-month" role="tab" aria-controls="pills-setting" aria-selected="false" tabindex="-1">Endodoncia</a>
@@ -114,6 +114,12 @@
 
 				<div class="tab-pane fade" id="citas" role="tabpanel" aria-labelledby="pills-setting-tab">
 					<calendar-component id='{{ $paciente[0]->id}}' idusuario='{{Auth::user()->id}}'></calendar-component>
+				</div>
+
+				<div class="tab-pane fade" id="odontograma" role="tabpanel" aria-labelledby="pills-setting-tab">
+					<div class="card-body">
+						<odontograma-component id='{{ $paciente[0]->id}}' idusuario='{{Auth::user()->id}}'></odontograma-component>
+					</div>
 				</div>
 			</div>
 		</div>

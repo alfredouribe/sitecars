@@ -16,6 +16,7 @@ use App\Models\AntecedentePatologicoPersonal;
 use App\Models\AntecedentePersonalNoPatologico;
 use App\Models\Tratamiento;
 use App\Models\CitasPaciente;
+use App\Models\odontograma;
 
 
 class api extends Controller
@@ -427,5 +428,122 @@ class api extends Controller
         }
 
         return $result;
+    }
+
+    public function guarda_odontograma(Request $request){
+        $match_these = [
+            'diente' => $request->diente, 
+            'cuadrante' => $request->cuadrante,
+            'paciente_id' => $request->paciente_id
+        ];
+
+        $odontograma_existe = odontograma::where($match_these)->get();
+
+        if(!$odontograma_existe->count()){
+            $odontograma = new odontograma;
+        
+            $odontograma->cuadrante = $request->cuadrante;
+            $odontograma->diente = $request->diente;
+            $odontograma->paciente_id = $request->paciente_id;
+            $odontograma->user_id = $request->user_id;
+
+            $odontograma->save();
+            
+            $result["status"] = "success";
+            $result["msg"] = "";
+        }else{
+            $result["status"] = "error";
+            $result["msg"] = "El diente $request->diente en el cuadrante $request->cuadrante ya existe";
+        }
+        
+        echo json_encode($result);
+    }
+
+    public function get_odontograma(Request $request){
+        $match_these = [
+            "paciente_id" => $request->paciente_id,
+            "cuadrante" => 1
+        ];
+
+        $odontograma_1 = odontograma::where($match_these)->orderByDesc('diente')->get();
+
+        $odontograma_general['odontograma_1'] = $odontograma_1;
+
+        $match_these = [
+            "paciente_id" => $request->paciente_id,
+            "cuadrante" => 4
+        ];
+
+        $odontograma_4 = odontograma::where($match_these)->orderByDesc('diente')->get();
+
+        $odontograma_general['odontograma_4'] = $odontograma_4;
+
+        $match_these = [
+            "paciente_id" => $request->paciente_id,
+            "cuadrante" => 2
+        ];
+
+        $odontograma_2 = odontograma::where($match_these)->orderBy('diente')->get();
+
+        $odontograma_general['odontograma_2'] = $odontograma_2;
+
+        $match_these = [
+            "paciente_id" => $request->paciente_id,
+            "cuadrante" => 3
+        ];
+
+        $odontograma_3 = odontograma::where($match_these)->orderBy('diente')->get();
+
+        $odontograma_general['odontograma_3'] = $odontograma_3;
+
+
+        $match_these = [
+            "paciente_id" => $request->paciente_id,
+            "cuadrante" => 5
+        ];
+
+        $odontograma_5 = odontograma::where($match_these)->orderByDesc('diente')->get();
+
+        $odontograma_general['odontograma_5'] = $odontograma_5;
+
+        $match_these = [
+            "paciente_id" => $request->paciente_id,
+            "cuadrante" => 8
+        ];
+
+        $odontograma_8 = odontograma::where($match_these)->orderByDesc('diente')->get();
+
+        $odontograma_general['odontograma_8'] = $odontograma_8;
+
+        $match_these = [
+            "paciente_id" => $request->paciente_id,
+            "cuadrante" => 6
+        ];
+
+        $odontograma_6 = odontograma::where($match_these)->orderBy('diente')->get();
+
+        $odontograma_general['odontograma_6'] = $odontograma_6;
+
+        $match_these = [
+            "paciente_id" => $request->paciente_id,
+            "cuadrante" => 7
+        ];
+
+        $odontograma_7 = odontograma::where($match_these)->orderBy('diente')->get();
+
+        $odontograma_general['odontograma_7'] = $odontograma_7;
+
+        return $odontograma_general;
+    }
+
+    public function cambia_color(Request $request){
+        $id = $request->id;
+        $num = $request->num;
+        $color = $request->color;
+
+        if($color != 'NULL')
+            odontograma::where('id', $id)->update(['codigo_'.$num => $color]);
+        else
+            odontograma::where('id', $id)->update(['codigo_'.$num => null]);
     }
 }
