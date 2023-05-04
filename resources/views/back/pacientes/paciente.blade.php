@@ -33,7 +33,7 @@
 					<a class="nav-link" id="pills-setting-tab" data-bs-toggle="pill" href="#odontograma" role="tab" aria-controls="pills-setting" aria-selected="false" tabindex="-1">Odontograma</a>
 				</li>
 				<li class="nav-item" role="presentation">
-					<a class="nav-link" id="pills-setting-tab" data-bs-toggle="pill" href="#previous-month" role="tab" aria-controls="pills-setting" aria-selected="false" tabindex="-1">Endodoncia</a>
+					<a class="nav-link" id="pills-setting-tab" data-bs-toggle="pill" href="#endodoncia" role="tab" aria-controls="pills-setting" aria-selected="false" tabindex="-1">Endodoncia</a>
 				</li>
 				<li class="nav-item" role="presentation">
 					<a class="nav-link" id="pills-setting-tab" data-bs-toggle="pill" href="#tratamientos" role="tab" aria-controls="pills-setting" aria-selected="false" tabindex="-1">Tratamientos</a>
@@ -54,58 +54,8 @@
 					<hr>
 					<antecedente-personal-no-patologico id='{{ $paciente[0]->id}}' idusuario='{{Auth::user()->id}}'></antecedente-personal-no-patologico>
 				</div>
-				<div class="tab-pane fade" id="previous-month" role="tabpanel" aria-labelledby="pills-setting-tab">
-					<div class="card-body">
-						<form class="form-horizontal form-material">
-							<div class="mb-3">
-								<label class="col-md-12">Full Name</label>
-								<div class="col-md-12">
-									<input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
-								</div>
-							</div>
-							<div class="mb-3">
-								<label for="example-email" class="col-md-12">Email</label>
-								<div class="col-md-12">
-									<input type="email" placeholder="johnathan@admin.com" class="form-control form-control-line" name="example-email" id="example-email">
-								</div>
-							</div>
-							<div class="mb-3">
-								<label class="col-md-12">Password</label>
-								<div class="col-md-12">
-									<input type="password" value="password" class="form-control form-control-line">
-								</div>
-							</div>
-							<div class="mb-3">
-								<label class="col-md-12">Phone No</label>
-								<div class="col-md-12">
-									<input type="text" placeholder="123 456 7890" class="form-control form-control-line">
-								</div>
-							</div>
-							<div class="mb-3">
-								<label class="col-md-12">Message</label>
-								<div class="col-md-12">
-									<textarea rows="5" class="form-control form-control-line"></textarea>
-								</div>
-							</div>
-							<div class="mb-3">
-								<label class="col-sm-12">Select Country</label>
-								<div class="col-sm-12">
-									<select class="form-select form-control-line">
-										<option>London</option>
-										<option>India</option>
-										<option>Usa</option>
-										<option>Canada</option>
-										<option>Thailand</option>
-									</select>
-								</div>
-							</div>
-							<div class="mb-3">
-								<div class="col-sm-12">
-									<button class="btn btn-success"> Update Profile </button>
-								</div>
-							</div>
-						</form>
-					</div>
+				<div class="tab-pane fade" id="endodoncia" role="tabpanel" aria-labelledby="pills-setting-tab">
+					<endodoncia-component id='{{ $paciente[0]->id}}' idusuario='{{Auth::user()->id}}'></endodoncia-component>
 				</div>
 
 				<div class="tab-pane fade" id="tratamientos" role="tabpanel" aria-labelledby="pills-setting-tab">

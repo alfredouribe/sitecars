@@ -17,6 +17,7 @@ use App\Models\AntecedentePersonalNoPatologico;
 use App\Models\Tratamiento;
 use App\Models\CitasPaciente;
 use App\Models\odontograma;
+use App\Models\endodoncia;
 
 
 class api extends Controller
@@ -545,5 +546,38 @@ class api extends Controller
             odontograma::where('id', $id)->update(['codigo_'.$num => $color]);
         else
             odontograma::where('id', $id)->update(['codigo_'.$num => null]);
+    }
+
+    public function save_endodoncia(Request $request){
+        $endodoncia = new endodoncia;
+
+        $endodoncia->conducto = $request->conducto;
+        $endodoncia->mm = $request->mm;
+        $endodoncia->referencia = $request->referencia;
+        $endodoncia->fo = $request->fo;
+        $endodoncia->gates = $request->gates;
+        $endodoncia->retroceso = $request->retroceso;
+        $endodoncia->paciente_id = $request->idPaciente;
+        $endodoncia->user_id = $request->idUsuario;
+        $endodoncia->lima_maestra = $request->lima_maestra;
+
+        $endodoncia->save();
+    }
+
+    public function get_endodoncias(Request $request){
+        $id = $request->id;
+
+        $tratamientos = endodoncia::where("endodoncias.paciente_id" , "=", $id)
+        ->join('users', "endodoncias.user_id", "=", "users.id")
+        ->select('endodoncias.*', 'users.name')
+        ->get();
+
+        return $tratamientos;
+    }
+
+    public function eliminar_endodoncia(request $request){
+        $id = $request->id;
+
+        endodoncia::destroy($id);
     }
 }

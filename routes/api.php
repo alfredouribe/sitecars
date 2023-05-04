@@ -45,4 +45,7 @@ Route::post('consulta_citas',['App\Http\Controllers\api', 'consulta_citas'])->na
 Route::post('guarda_odontograma',['App\Http\Controllers\api', 'guarda_odontograma'])->name('guarda_odontograma');
 Route::post('get_odontograma',['App\Http\Controllers\api', 'get_odontograma'])->name('get_odontograma');
 Route::post('cambia_color',['App\Http\Controllers\api', 'cambia_color'])->name('cambia_color');
+Route::post('save_endodoncia',['App\Http\Controllers\api', 'save_endodoncia'])->name('save_endodoncia');
+Route::post('get_endodoncias',['App\Http\Controllers\api', 'get_endodoncias'])->name('get_endodoncias');
+Route::post('eliminar_endodoncia',['App\Http\Controllers\api', 'eliminar_endodoncia'])->name('eliminar_endodoncia');
 //cambia_status_usuario_cliente update_paciente

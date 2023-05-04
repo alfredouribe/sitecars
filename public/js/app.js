@@ -6856,6 +6856,216 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/EndodonciaComponent.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/EndodonciaComponent.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    id: 0,
+    idusuario: 0
+  },
+  components: {},
+  data: function data() {
+    return {
+      endodoncia: {
+        id: '',
+        conducto: '',
+        mm: '',
+        referencia: '',
+        fo: '',
+        gates: '',
+        retroceso: '',
+        lima_maestra: ''
+      },
+      columns: [{
+        label: 'Id',
+        field: 'id'
+      }, {
+        label: 'Conducto',
+        field: 'conducto'
+      }, {
+        label: 'mm',
+        field: 'mm'
+      }, {
+        label: 'Referencia',
+        field: 'referencia'
+      }, {
+        label: 'F.O.',
+        field: 'fo'
+      }, {
+        label: 'Gates',
+        field: 'gates'
+      }, {
+        label: 'Retroceso',
+        field: 'retroceso'
+      }, {
+        label: 'Lima Maestra',
+        field: 'lima_maestra'
+      }, {
+        label: 'Opciones',
+        field: 'opciones'
+      }],
+      endodoncias: [],
+      option: {
+        penColor: "rgb(0, 0, 0)",
+        backgroundColor: "rgb(255,255,255)"
+      }
+    };
+  },
+  mounted: function mounted() {
+    this.get_endodoncias();
+  },
+  methods: {
+    get_endodoncias: function get_endodoncias() {
+      var _this = this;
+
+      var params = {
+        id: this.id
+      };
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post("/api/get_endodoncias", params).then(function (res) {
+        _this.endodoncias = res.data;
+      });
+    },
+    save_endodoncia: function save_endodoncia() {
+      var _this2 = this;
+
+      var params = {
+        conducto: this.endodoncia.conducto,
+        mm: this.endodoncia.mm,
+        referencia: this.endodoncia.referencia,
+        fo: this.endodoncia.fo,
+        gates: this.endodoncia.gates,
+        retroceso: this.endodoncia.retroceso,
+        lima_maestra: this.endodoncia.lima_maestra,
+        idPaciente: this.id,
+        idUsuario: this.idusuario
+      };
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post("/api/save_endodoncia", params).then(function (res) {
+        _this2.get_endodoncias();
+
+        $("#modalEndodoncia").modal('hide');
+        _this2.endodoncia = {};
+      });
+    },
+    modalFormEndodoncia: function modalFormEndodoncia() {
+      $("#modalEndodoncia").modal('show');
+    },
+    eliminar_endodoncia: function eliminar_endodoncia(id) {
+      var _this3 = this;
+
+      var params = {
+        id: id
+      };
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post("/api/eliminar_endodoncia", params).then(function (res) {
+        _this3.get_endodoncias();
+      });
+    }
+  },
+  filters: {}
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js& ***!
@@ -8249,6 +8459,7 @@ Vue.component('antecedente-personal-no-patologico', (__webpack_require__(/*! ./c
 Vue.component('tratamientos-component', (__webpack_require__(/*! ./components/TratamiendosComponent.vue */ "./resources/js/components/TratamiendosComponent.vue")["default"]));
 Vue.component('calendar-component', (__webpack_require__(/*! ./components/CalendarComponent.vue */ "./resources/js/components/CalendarComponent.vue")["default"]));
 Vue.component('odontograma-component', (__webpack_require__(/*! ./components/OdontogramaComponent.vue */ "./resources/js/components/OdontogramaComponent.vue")["default"]));
+Vue.component('endodoncia-component', (__webpack_require__(/*! ./components/EndodonciaComponent.vue */ "./resources/js/components/EndodonciaComponent.vue")["default"]));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -42094,6 +42305,45 @@ component.options.__file = "resources/js/components/ClientesComponent.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/EndodonciaComponent.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/EndodonciaComponent.vue ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _EndodonciaComponent_vue_vue_type_template_id_3feecb36_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EndodonciaComponent.vue?vue&type=template&id=3feecb36&scoped=true& */ "./resources/js/components/EndodonciaComponent.vue?vue&type=template&id=3feecb36&scoped=true&");
+/* harmony import */ var _EndodonciaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EndodonciaComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/EndodonciaComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _EndodonciaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _EndodonciaComponent_vue_vue_type_template_id_3feecb36_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _EndodonciaComponent_vue_vue_type_template_id_3feecb36_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "3feecb36",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/EndodonciaComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/ExampleComponent.vue":
 /*!******************************************************!*\
   !*** ./resources/js/components/ExampleComponent.vue ***!
@@ -42458,6 +42708,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/EndodonciaComponent.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/EndodonciaComponent.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EndodonciaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./EndodonciaComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/EndodonciaComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EndodonciaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************!*\
   !*** ./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js& ***!
@@ -42764,6 +43030,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ClientesComponent_vue_vue_type_template_id_7bff232e___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ClientesComponent_vue_vue_type_template_id_7bff232e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ClientesComponent.vue?vue&type=template&id=7bff232e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ClientesComponent.vue?vue&type=template&id=7bff232e&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/EndodonciaComponent.vue?vue&type=template&id=3feecb36&scoped=true&":
+/*!****************************************************************************************************!*\
+  !*** ./resources/js/components/EndodonciaComponent.vue?vue&type=template&id=3feecb36&scoped=true& ***!
+  \****************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EndodonciaComponent_vue_vue_type_template_id_3feecb36_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EndodonciaComponent_vue_vue_type_template_id_3feecb36_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EndodonciaComponent_vue_vue_type_template_id_3feecb36_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./EndodonciaComponent.vue?vue&type=template&id=3feecb36&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/EndodonciaComponent.vue?vue&type=template&id=3feecb36&scoped=true&");
 
 
 /***/ }),
@@ -47323,6 +47606,491 @@ var staticRenderFns = [
     return _c("div", { staticClass: "modal-header" }, [
       _c("h5", { staticClass: "modal-title", attrs: { id: "modalForm" } }, [
         _vm._v("Cliente"),
+      ]),
+      _vm._v(" "),
+      _c("button", {
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary",
+          attrs: { type: "button", "data-bs-dismiss": "modal" },
+        },
+        [_vm._v("Cerrar")]
+      ),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/EndodonciaComponent.vue?vue&type=template&id=3feecb36&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/EndodonciaComponent.vue?vue&type=template&id=3feecb36&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticStyle: { "margin-top": "24px" } },
+    [
+      _c("div", { staticClass: "row mb-3" }, [
+        _c("div", { staticClass: "col-md-12" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-primary",
+              attrs: { type: "button" },
+              on: {
+                click: function ($event) {
+                  return _vm.modalFormEndodoncia()
+                },
+              },
+            },
+            [_vm._v("Nueva Endodoncia")]
+          ),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("vue-good-table", {
+        attrs: {
+          columns: _vm.columns,
+          rows: _vm.endodoncias,
+          "search-options": { enabled: true, placeholder: "Buscar..." },
+        },
+        scopedSlots: _vm._u([
+          {
+            key: "table-row",
+            fn: function (props) {
+              return [
+                props.column.field == "opciones"
+                  ? _c("span", [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-danger",
+                          attrs: { type: "button" },
+                          on: {
+                            click: function ($event) {
+                              return _vm.eliminar_endodoncia(props.row.id)
+                            },
+                          },
+                        },
+                        [_vm._v("Eliminar")]
+                      ),
+                    ])
+                  : _c("span", [
+                      _vm._v(
+                        "\n                " +
+                          _vm._s(props.formattedRow[props.column.field]) +
+                          "\n            "
+                      ),
+                    ]),
+              ]
+            },
+          },
+        ]),
+      }),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: {
+            id: "modalEndodoncia",
+            tabindex: "-1",
+            "aria-labelledby": "modalForm",
+            "aria-hidden": "true",
+          },
+        },
+        [
+          _c("div", { staticClass: "modal-dialog" }, [
+            _c("div", { staticClass: "modal-content" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c(
+                  "form",
+                  {
+                    on: {
+                      submit: function ($event) {
+                        $event.preventDefault()
+                        return _vm.save_endodoncia.apply(null, arguments)
+                      },
+                    },
+                  },
+                  [
+                    _c("div", { staticClass: "mb-3" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "form-label",
+                          attrs: { for: "conducto" },
+                        },
+                        [_vm._v("Conducto*")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.endodoncia.conducto,
+                              expression: "endodoncia.conducto",
+                            },
+                          ],
+                          staticClass: "form-select",
+                          attrs: { id: "conducto", required: "" },
+                          on: {
+                            change: function ($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function (o) {
+                                  return o.selected
+                                })
+                                .map(function (o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.endodoncia,
+                                "conducto",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            },
+                          },
+                        },
+                        [
+                          _c(
+                            "option",
+                            {
+                              attrs: { value: "", selected: "", disabled: "" },
+                            },
+                            [_vm._v("Seleccionar")]
+                          ),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Palatino" } }, [
+                            _vm._v("Palatino"),
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Vestibular" } }, [
+                            _vm._v("Vestibular"),
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "option",
+                            { attrs: { value: "Mesio-vestibular" } },
+                            [_vm._v("Mesio-vestibular")]
+                          ),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Mesio-Lingual" } }, [
+                            _vm._v("Mesio-Lingual"),
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Distal" } }, [
+                            _vm._v("Distal"),
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "Unico" } }, [
+                            _vm._v("Unico"),
+                          ]),
+                        ]
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "mb-3" }, [
+                      _c(
+                        "label",
+                        { staticClass: "form-label", attrs: { for: "mm" } },
+                        [_vm._v("mm*")]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.endodoncia.mm,
+                            expression: "endodoncia.mm",
+                          },
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "text",
+                          id: "mm",
+                          required: "",
+                          maxlength: "50",
+                        },
+                        domProps: { value: _vm.endodoncia.mm },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.endodoncia, "mm", $event.target.value)
+                          },
+                        },
+                      }),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "mb-3" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "form-label",
+                          attrs: { for: "referencia" },
+                        },
+                        [_vm._v("Referencia*")]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.endodoncia.referencia,
+                            expression: "endodoncia.referencia",
+                          },
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "text",
+                          id: "referencia",
+                          required: "",
+                          maxlength: "100",
+                        },
+                        domProps: { value: _vm.endodoncia.referencia },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.endodoncia,
+                              "referencia",
+                              $event.target.value
+                            )
+                          },
+                        },
+                      }),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "mb-3" }, [
+                      _c(
+                        "label",
+                        { staticClass: "form-label", attrs: { for: "fo" } },
+                        [_vm._v("F-O*")]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.endodoncia.fo,
+                            expression: "endodoncia.fo",
+                          },
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "text",
+                          id: "fo",
+                          required: "",
+                          maxlength: "100",
+                        },
+                        domProps: { value: _vm.endodoncia.fo },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.endodoncia, "fo", $event.target.value)
+                          },
+                        },
+                      }),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "mb-3" }, [
+                      _c(
+                        "label",
+                        { staticClass: "form-label", attrs: { for: "gates" } },
+                        [_vm._v("Gates*")]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.endodoncia.gates,
+                            expression: "endodoncia.gates",
+                          },
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "text",
+                          id: "gates",
+                          required: "",
+                          maxlength: "100",
+                        },
+                        domProps: { value: _vm.endodoncia.gates },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.endodoncia,
+                              "gates",
+                              $event.target.value
+                            )
+                          },
+                        },
+                      }),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "mb-3" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "form-label",
+                          attrs: { for: "retroceso" },
+                        },
+                        [_vm._v("Retroceso*")]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.endodoncia.retroceso,
+                            expression: "endodoncia.retroceso",
+                          },
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "text",
+                          id: "retroceso",
+                          required: "",
+                          maxlength: "100",
+                        },
+                        domProps: { value: _vm.endodoncia.retroceso },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.endodoncia,
+                              "retroceso",
+                              $event.target.value
+                            )
+                          },
+                        },
+                      }),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "mb-3" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "form-label",
+                          attrs: { for: "lima_maestra" },
+                        },
+                        [_vm._v("Lima Maestra*")]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.endodoncia.lima_maestra,
+                            expression: "endodoncia.lima_maestra",
+                          },
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "text",
+                          id: "lima_maestra",
+                          required: "",
+                          maxlength: "100",
+                        },
+                        domProps: { value: _vm.endodoncia.lima_maestra },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.endodoncia,
+                              "lima_maestra",
+                              $event.target.value
+                            )
+                          },
+                        },
+                      }),
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary",
+                        attrs: { type: "submit" },
+                      },
+                      [_vm._v("Guardar")]
+                    ),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _vm._m(1),
+            ]),
+          ]),
+        ]
+      ),
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("h5", { staticClass: "modal-title", attrs: { id: "modalForm" } }, [
+        _vm._v("Nuevo"),
       ]),
       _vm._v(" "),
       _c("button", {
