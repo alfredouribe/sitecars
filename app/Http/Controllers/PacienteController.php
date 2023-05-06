@@ -95,8 +95,8 @@ class PacienteController extends Controller
     public function paciente(Request $request){
         $idPaciente = $request->id;
         $paciente = Paciente::select('*')->where('id', '=', $idPaciente)->get();
-
-        return view('back.pacientes.paciente', compact('paciente'));
+        $cliente_usuario = cliente_usuario::select('*')->where("cliente_user_id", "=", Auth::user()->id)->get();
+        return view('back.pacientes.paciente', compact('paciente', 'cliente_usuario'));
     }
 
     public function carga_imagen_paciente(Request $request){

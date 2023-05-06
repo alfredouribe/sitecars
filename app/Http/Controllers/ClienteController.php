@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cliente;
+use App\Models\cliente_usuario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ClienteController extends Controller
 {
@@ -14,13 +16,25 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        return view('back.clientes.index');
+        $cliente_usuario = cliente_usuario::select('*')->where("cliente_user_id", "=", Auth::user()->id)->get();
+
+        if(isset($cliente_usuario[0]->cliente_id)){
+            return redirect('/home');
+        }else{
+            return view('back.clientes.index');
+        }
+        
     }
 
     public function cliente(Request $request){
-
+        $cliente_usuario = cliente_usuario::select('*')->where("cliente_user_id", "=", Auth::user()->id)->get();
         $id = $request->id;
-        return view('back.clientes.detail', compact('id'));
+
+        if(isset($cliente_usuario[0]->cliente_id)){
+            return redirect('/home');
+        }else{
+            return view('back.clientes.detail', compact('id'));
+        }
     }
 
     /**

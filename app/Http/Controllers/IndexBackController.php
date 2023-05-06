@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\cliente_usuario;
+use Illuminate\Support\Facades\Auth;
 class IndexBackController extends Controller
 {
     /**
@@ -23,6 +24,12 @@ class IndexBackController extends Controller
      */
     public function index()
     {
-        return view('back.index');
+        $cliente_usuario = cliente_usuario::select('*')->where("cliente_user_id", "=", Auth::user()->id)->get();
+        return view('back.index', compact('cliente_usuario'));
+    }
+
+    public function citas(){
+        $cliente_usuario = cliente_usuario::select('*')->where("cliente_user_id", "=", Auth::user()->id)->get();
+        return view('back.pacientes.citas', compact('cliente_usuario'));
     }
 }

@@ -18,6 +18,7 @@ use App\Models\Tratamiento;
 use App\Models\CitasPaciente;
 use App\Models\odontograma;
 use App\Models\endodoncia;
+use Illuminate\Support\Facades\DB;
 
 
 class api extends Controller
@@ -380,6 +381,7 @@ class api extends Controller
         $cita->user_id = $request->user_id;
         $cita->fecha = $request->fecha;
         $cita->motivo = $request->motivo;
+        $cita->cliente_id = $request->cliente_id;
 
         $cita->save();
     }
@@ -419,7 +421,10 @@ class api extends Controller
                 'customData' => [
                     'title' => date("h:i A", strtotime($cita->fecha)) . " " . $cita->motivo,
                     'class' => $class,
-                    'id' => $cita->id
+                    'id' => $cita->id,
+                    'fecha' => date("Y-m-d H:i:00", strtotime($cita->fecha)),
+                    'motivo' => $cita->motivo,
+                    "estatus" => $cita->estatus
                 ],
                 'dates' => $cita->fecha,
             ];
@@ -575,9 +580,74 @@ class api extends Controller
         return $tratamientos;
     }
 
-    public function eliminar_endodoncia(request $request){
+    public function eliminar_endodoncia(Request $request){
         $id = $request->id;
 
         endodoncia::destroy($id);
+    }
+
+    public function actualiza_cita(Request $request){
+        
+
+        $cita = request()->except(['_token', '_method']);
+
+        CitasPaciente::where('id', '=', $request->id)->update($cita);
+    }
+
+    public function consulta_citas_general(Request $request){
+        $cliente_id = $request->cliente_id;
+
+        $citas = CitasPaciente::join('pacientes', 'citas_pacientes.paciente_id', '=', 'pacientes.id')
+        ->where('citas_pacientes.cliente_id', '=', $cliente_id)
+        ->orderBy('citas_pacientes.fecha')
+        ->select('citas_pacientes.*', 
+            DB::raw("CONCAT_WS(' ', pacientes.nombre, pacientes.segundo_nombre, pacientes.paterno, pacientes.materno) as nombre_completo")
+        )
+        ->get();
+
+        $result = [];
+        $i = 0;
+        foreach ($citas as $cita) {
+            switch($cita->estatus){
+                case "GENERADA":
+                    $class="bg-primary text-white";
+                break;
+
+                case "CONCRETADA":
+                    $class="bg-success text-white";
+                break;
+
+                case "CANCELADA":
+                    $class="bg-danger text-white";
+                break;
+
+                case "POSPUESTA":
+                    $class="bg-warning";
+                break;
+
+                default:
+                    $class="bg-info";
+                break;
+            }
+
+            $item = [
+                'key' => $i,
+                'customData' => [
+                    'title' => date("h:i A", strtotime($cita->fecha)) . " " . $cita->motivo,
+                    'class' => $class,
+                    'id' => $cita->id,
+                    'fecha' => date("Y-m-d H:i:00", strtotime($cita->fecha)),
+                    'motivo' => $cita->motivo,
+                    "estatus" => $cita->estatus,
+                    'nombre_completo' => $cita->nombre_completo
+                ],
+                'dates' => $cita->fecha,
+            ];
+
+            array_push($result, $item);
+            $i++;
+        }
+
+        return $result;
     }
 }
