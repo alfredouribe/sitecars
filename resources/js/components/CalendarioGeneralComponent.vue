@@ -1,26 +1,7 @@
 <template>
 	<div class="section">
-	  <h2 class="h2 text-center ">Citas del Paciente</h2>
 	  	
 		<div class="row">
-			<div class="col-md-6" style="margin-bottom: 24px">
-				<form v-on:submit.prevent="genera_cita" id="form_citas">
-					<h3>Crear Cita</h3>
-
-					<div class="mb-3">
-						<label for="motivo" class="form-label">Motivo</label>
-						<input type="text" class="form-control" id="motivo" aria-describedby="motivo" v-model="motivo" maxlength="50" required>
-					</div>
-
-					<div class="mb-3">
-						<label for="cita" class="form-label">Fecha y Hora</label>
-						<input type="datetime-local" step="60" class="form-control" id="cita" aria-describedby="cita" v-model="fecha_cita">
-					</div>
-
-					<button type="submit" class="btn btn-primary">Guardar</button>
-				</form>
-			</div>
-
 			<div class="col-md-12">
 				<v-calendar
 					class="custom-calendar max-w-full"
@@ -43,6 +24,8 @@
 								@click="modalForm(attr.customData.id, attr.customData.fecha, attr.customData.motivo, attr.customData.estatus)"
 							>
 								{{ attr.customData.title }}
+                                <br>
+                                {{ attr.customData.nombre_completo }}
 							</p>
 							</div>
 						</div>
@@ -102,8 +85,7 @@ import axios from 'axios';
   export default {
 	props: {
 		id: 0,
-		idusuario: 0,
-		idcliente: 0
+		idusuario: 0
 	},
 	data() {
 	  const month = new Date().getMonth();
@@ -129,28 +111,12 @@ import axios from 'axios';
 	  };
 	},
 	methods: {
-		genera_cita(){
+		consulta_citas_general(){
 			let params = {
-				motivo: this.motivo,
-				fecha: this.fecha_cita,
-				paciente_id: this.id,
-				user_id: this.idusuario,
-				cliente_id: this.idcliente
+				cliente_id: this.id
 			}
 
-			axios.post("/api/genera_cita/", params)
-			.then( res => {
-				this.motivo = ""
-				this.fecha = ""
-				this.consulta_citas()
-			})
-		},
-		consulta_citas(){
-			let params = {
-				paciente_id: this.id
-			}
-
-			axios.post("/api/consulta_citas", params)
+			axios.post("/api/consulta_citas_general", params)
 			.then( res => {
 				this.attributes = res.data
 			})
@@ -172,7 +138,7 @@ import axios from 'axios';
 
 			axios.post("/api/actualiza_cita", params)
 			.then( res => {
-				this.consulta_citas()
+				this.consulta_citas_general()
 				this.motivo = ''
 				this.fecha_cita = ''
 				this.idCita = ''
@@ -182,7 +148,7 @@ import axios from 'axios';
 		},
 	},
 	mounted(){
-		this.consulta_citas()
+		this.consulta_citas_general()
 	},
 	filters: {
 		

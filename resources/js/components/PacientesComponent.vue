@@ -6,7 +6,7 @@
             </div>
         </div>
 
-        <vue-good-table :columns="columns" :rows="pacientes" :search-options="{ enabled: true, placeholder: 'Buscar...', compactMode }">
+        <vue-good-table :columns="columns" :rows="pacientes" :search-options="{ enabled: true, placeholder: 'Buscar...' }">
             <template slot="table-row" slot-scope="props">
                 <span v-if="props.column.field == 'foto'">
                     <span v-if="props.row.foto == ''">Sin foto</span>

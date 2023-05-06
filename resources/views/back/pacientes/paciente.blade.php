@@ -63,7 +63,7 @@
 				</div>
 
 				<div class="tab-pane fade" id="citas" role="tabpanel" aria-labelledby="pills-setting-tab">
-					<calendar-component id='{{ $paciente[0]->id}}' idusuario='{{Auth::user()->id}}'></calendar-component>
+					<calendar-component id='{{ $paciente[0]->id}}' idusuario='{{Auth::user()->id}}' idcliente='{{$cliente_usuario[0]->id}}'></calendar-component>
 				</div>
 
 				<div class="tab-pane fade" id="odontograma" role="tabpanel" aria-labelledby="pills-setting-tab">

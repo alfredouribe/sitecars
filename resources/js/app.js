@@ -39,6 +39,7 @@ Vue.component('tratamientos-component', require('./components/TratamiendosCompon
 Vue.component('calendar-component', require('./components/CalendarComponent.vue').default);
 Vue.component('odontograma-component', require('./components/OdontogramaComponent.vue').default);
 Vue.component('endodoncia-component', require('./components/EndodonciaComponent.vue').default);
+Vue.component('calendario-general-component', require('./components/CalendarioGeneralComponent.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

@@ -48,4 +48,6 @@ Route::post('cambia_color',['App\Http\Controllers\api', 'cambia_color'])->name('
 Route::post('save_endodoncia',['App\Http\Controllers\api', 'save_endodoncia'])->name('save_endodoncia');
 Route::post('get_endodoncias',['App\Http\Controllers\api', 'get_endodoncias'])->name('get_endodoncias');
 Route::post('eliminar_endodoncia',['App\Http\Controllers\api', 'eliminar_endodoncia'])->name('eliminar_endodoncia');
+Route::post('actualiza_cita',['App\Http\Controllers\api', 'actualiza_cita'])->name('actualiza_cita');
+Route::post('consulta_citas_general',['App\Http\Controllers\api', 'consulta_citas_general'])->name('consulta_citas_general');
 //cambia_status_usuario_cliente update_paciente
