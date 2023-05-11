@@ -14,7 +14,7 @@
 
                     <div class="mb-3">
                         <label for="diente" class="form-label">No. Diente</label>
-                        <input type="number" min="0" step="1" class="form-control" id="diente" aria-describedby="diente" v-model="odontograma.diente">
+                        <input type="number" min="0" step="1" max="8" class="form-control" id="diente" aria-describedby="diente" v-model="odontograma.diente">
                     </div>
                     <button type="submit" class="btn btn-primary">Guardar</button>
                 </form>

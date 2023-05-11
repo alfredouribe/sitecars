@@ -18,9 +18,9 @@ class ClienteController extends Controller
     {
         $cliente_usuario = cliente_usuario::select('*')->where("cliente_user_id", "=", Auth::user()->id)->get();
 
-        if(isset($cliente_usuario[0]->cliente_id)){
+        if(isset($cliente_usuario[0]->cliente_id) && count($cliente_usuario)){
             return redirect('/home');
-        }else{
+        }else{ 
             return view('back.clientes.index');
         }
         
@@ -30,7 +30,7 @@ class ClienteController extends Controller
         $cliente_usuario = cliente_usuario::select('*')->where("cliente_user_id", "=", Auth::user()->id)->get();
         $id = $request->id;
 
-        if(isset($cliente_usuario[0]->cliente_id)){
+        if(isset($cliente_usuario[0]->cliente_id) && $cliente_usuario[0]->cliente_id>0){
             return redirect('/home');
         }else{
             return view('back.clientes.detail', compact('id'));

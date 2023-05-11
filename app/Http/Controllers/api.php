@@ -598,11 +598,11 @@ class api extends Controller
         $cliente_id = $request->cliente_id;
 
         $citas = CitasPaciente::join('pacientes', 'citas_pacientes.paciente_id', '=', 'pacientes.id')
-        ->where('citas_pacientes.cliente_id', '=', $cliente_id)
         ->orderBy('citas_pacientes.fecha')
         ->select('citas_pacientes.*', 
             DB::raw("CONCAT_WS(' ', pacientes.nombre, pacientes.segundo_nombre, pacientes.paterno, pacientes.materno) as nombre_completo")
         )
+        ->where('citas_pacientes.cliente_id', '=', $cliente_id)
         ->get();
 
         $result = [];

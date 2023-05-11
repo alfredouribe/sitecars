@@ -138,7 +138,7 @@ import axios from 'axios';
 				cliente_id: this.idcliente
 			}
 
-			axios.post("/api/genera_cita/", params)
+			axios.post("/api/genera_cita", params)
 			.then( res => {
 				this.motivo = ""
 				this.fecha = ""

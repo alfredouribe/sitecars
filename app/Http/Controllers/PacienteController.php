@@ -96,7 +96,11 @@ class PacienteController extends Controller
         $idPaciente = $request->id;
         $paciente = Paciente::select('*')->where('id', '=', $idPaciente)->get();
         $cliente_usuario = cliente_usuario::select('*')->where("cliente_user_id", "=", Auth::user()->id)->get();
-        return view('back.pacientes.paciente', compact('paciente', 'cliente_usuario'));
+        
+        if(count($paciente) && ($cliente_usuario[0]->cliente_id == $paciente[0]->cliente_id))
+            return view('back.pacientes.paciente', compact('paciente', 'cliente_usuario'));
+        else
+            return redirect('/c-pacientes');
     }
 
     public function carga_imagen_paciente(Request $request){
