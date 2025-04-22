@@ -28,9 +28,12 @@
         "datatables.net-dt": "^1.13.4",
         "font-awesome": "^4.7.0",
         "gasparesganga-jquery-loading-overlay": "^2.1.7",
+        "sweetalert2": "^11.19.1",
         "v-calendar": "^2.4.1",
         "vue-good-table": "^2.21.11",
         "vue-signature": "^2.5.6",
+        "vue-toasted": "^1.1.28",
+        "vue-toastification": "^1.7.14",
         "vue2-dropzone": "^3.6.0"
     }
 }

@@ -18,7 +18,9 @@ use App\Models\Tratamiento;
 use App\Models\CitasPaciente;
 use App\Models\odontograma;
 use App\Models\endodoncia;
+use App\Models\suscripciones;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\QueryException;
 
 
 class api extends Controller
@@ -35,35 +37,88 @@ class api extends Controller
     }
 
     public function save_cliente(Request $request){
-
-        if($request->id == ''){
-            $cliente = new Cliente();
-
-            $cliente->nombre = $request->nombre;
-            $cliente->segundoNombre = $request->segundoNombre;
-            $cliente->apellidoPaterno = $request->apellidoPaterno;
-            $cliente->apellidoMaterno = $request->apellidoMaterno;
-            $cliente->telefono = $request->telefono;
-            $cliente->email = $request->email;
+        try {
+            DB::beginTransaction();
+            if($request->id == ''){
+                $cliente = new Cliente();
     
-            $cliente->save();
-        }else{
-            $cliente = request()->except(['_token', '_method']);
+                $cliente->nombre = $request->nombre;
+                $cliente->segundoNombre = $request->segundoNombre;
+                $cliente->apellidoPaterno = $request->apellidoPaterno;
+                $cliente->apellidoMaterno = $request->apellidoMaterno;
+                $cliente->telefono = $request->telefono;
+                $cliente->email = $request->email;
+        
+                $cliente->save();
 
-            Cliente::where('id', '=', $request->id)->update($cliente);
+                // Crear suscripción por default (1 mes, por ejemplo)
+                $suscripcion = new suscripciones();
+                $suscripcion->cliente_id = $cliente->id;
+                $suscripcion->fecha_inicio = now();
+                $suscripcion->fecha_fin = now()->addMonth();
+                $suscripcion->paquete = 'basico';
+                $suscripcion->estado = 'activa';
+                $suscripcion->save();
+
+                DB::commit();
+
+                return response()->json([
+                    'code' => 200,
+                    'message' => 'Cliente creado exitosamente.',
+                    'data' => $cliente
+                ], 200);
+            }else{
+                $dataUpdate = request()->except(['_token', '_method']);
+    
+                Cliente::where('id', '=', $request->id)->update($dataUpdate);
+
+                // Desactivar suscripciones activas del cliente
+                suscripciones::where('cliente_id', $request->id)
+                ->where('estado', 'activa')
+                ->update(['estado' => 'suspendida']);
+
+                DB::commit();
+
+                return response()->json([
+                    'code' => 200,
+                    'message' => 'Cliente actualizado exitosamente.',
+                    'data' => $dataUpdate
+                ], 200);
+            }
+
+            
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            return response()->json([
+                'code' => 500,
+                'message' => 'Ocurrió un error al guardar el cliente.',
+                'error' => $th->getMessage()
+            ], 500);
         }
-
-        return 1;
     }
 
     public function cambiar_status_cliente(Request $request){
-        $id = $request->id;
-        $status = $request->status;
-
-        $cliente = Cliente::findOrFail($id);
-
-        $cliente->activo=$status;
-        $cliente->save();
+        try {
+            $id = $request->id;
+            $status = $request->status;
+    
+            $cliente = Cliente::findOrFail($id);
+    
+            $cliente->activo=$status;
+            $cliente->save();
+    
+            return response()->json([
+                'code' => 200,
+                'message' => 'Cliente actualizado exitosamente.'
+            ], 200);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'code' => 500,
+                'message' => 'Ocurrio un error al actualizar el cliente.',
+                'error' => $th->getMessage()
+            ], 500);
+        }
+       
     }
 
     public function get_cliente(Request $request){
@@ -91,6 +146,7 @@ class api extends Controller
                 'name' => $request->nombres,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
+                'rol' => 'cliente'
             ]);
     
             $data = User::latest()->first()->id;

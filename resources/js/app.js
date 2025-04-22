@@ -10,6 +10,9 @@ import VueGoodTablePlugin from 'vue-good-table';
 import 'vue-good-table/dist/vue-good-table.css'
 import { setupCalendar, Calendar, DatePicker } from 'v-calendar';
 
+import Toast from "vue-toastification";
+import "vue-toastification/dist/index.css";
+
 window.Vue = require('vue').default;
 
 
@@ -48,6 +51,12 @@ Vue.component('calendario-general-component', require('./components/CalendarioGe
 Vue.use(VueGoodTablePlugin);
 Vue.component('v-calendar', Calendar);
 Vue.component('v-date-picker', DatePicker);
+
+Vue.use(Toast, {
+    timeout: 3000,
+    position: "top-right"
+});
+
 const app = new Vue({
     el: '#app',
 });
