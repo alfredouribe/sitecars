@@ -1,18 +1,41 @@
-<h1>Cloning Project</h1>
+# Proyecto de Clonación
 
-<ul>
-    <li>composer install</li>
-    <li>copy .env.example .env</li>
-    <li>php artisan key:generate</li>
-    <li>npm install</li>
-</ul>
+Este proyecto está destinado a ser un sistema de gestión que incluye el manejo de usuarios, clientes, suscripciones y más.
 
-#Toast use
-this.$toast.success("Mensaje");
-this.$toast.error("Mensaje");
-this.$toast.info("Mensaje");
-this.$toast.warning("Mensaje");
+## 🔧 Pasos de Instalación
 
+1. **Instalar dependencias PHP:**
+    ```bash
+    composer install
+    ```
+
+2. **Copiar el archivo de configuración del entorno:**
+    ```bash
+    cp .env.example .env
+    ```
+
+3. **Generar la clave de la aplicación:**
+    ```bash
+    php artisan key:generate
+    ```
+
+4. **Instalar dependencias JavaScript:**
+    ```bash
+    npm install
+    ```
+
+---
+
+# 🥳 Uso de Toast
+
+El sistema utiliza el componente **Toast** para mostrar mensajes emergentes.
+
+```javascript
+this.$toast.success("Mensaje");  // Éxito
+this.$toast.error("Mensaje");    // Error
+this.$toast.info("Mensaje");     // Información
+this.$toast.warning("Mensaje"); // Advertencia
+```
 
 # 📦 SweetAlert2 - Uso en Vue 2
 
