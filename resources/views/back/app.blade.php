@@ -89,7 +89,7 @@
 
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark" style="display: none1">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="/index">Dental Care Admin</a>
+            <a class="navbar-brand ps-3" href="/home">Dental Care Admin</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fa fa-bars"></i></button>
             <!-- Navbar Search-->
@@ -132,7 +132,7 @@
                             @else
                             
                                 <div class="sb-sidenav-menu-heading">Clientes</div>
-                                <a class="nav-link" href="/index">
+                                <a class="nav-link" href="/home">
                                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                     Inicio
                                 </a>

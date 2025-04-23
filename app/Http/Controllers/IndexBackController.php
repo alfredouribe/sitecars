@@ -24,8 +24,15 @@ class IndexBackController extends Controller
      */
     public function index()
     {
-        $cliente_usuario = cliente_usuario::select('*')->where("cliente_user_id", "=", Auth::user()->id)->get();
-        return view('back.index', compact('cliente_usuario'));
+        $user = Auth::user();
+
+        if ($user->rol === 'admin') {
+            return view('back.clientes.index');
+        } else {
+            $cliente_usuario = cliente_usuario::select('*')->where("cliente_user_id", "=", Auth::user()->id)->get();
+            return view('back.index', compact('cliente_usuario'));
+        }
+        
     }
 
     public function citas(){

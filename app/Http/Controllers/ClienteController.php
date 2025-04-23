@@ -27,14 +27,23 @@ class ClienteController extends Controller
     }
 
     public function cliente(Request $request){
-        $cliente_usuario = cliente_usuario::select('*')->where("cliente_user_id", "=", Auth::user()->id)->get();
         $id = $request->id;
+        $user = Auth::user();
 
-        if(isset($cliente_usuario[0]->cliente_id) && $cliente_usuario[0]->cliente_id>0){
-            return redirect('/home');
-        }else{
+        // Si es admin, puede acceder a cualquier ID
+        if ($user->rol === 'admin') {
             return view('back.clientes.detail', compact('id'));
         }
+
+        // Si es cliente, verificamos su cliente_usuario
+        $cliente_usuario = cliente_usuario::where("cliente_user_id", $user->id)->first();
+
+        if ($cliente_usuario && $cliente_usuario->cliente_id == $id) {
+            return view('back.clientes.detail', compact('id'));
+        }
+
+        // Si no tiene permisos o ID no corresponde
+        return redirect('/home')->with('error', 'No tienes permiso para acceder a este recurso.');
     }
 
     /**

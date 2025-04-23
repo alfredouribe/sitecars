@@ -31,9 +31,19 @@ class api extends Controller
     // }
 
     public function get_clientes(Request $request){
-        $clientes = Cliente::get();
+        try {
+            $clientes = Cliente::with('suscripciones')->get();
 
-        return $clientes;
+            return response()->json([
+                'code' => 200,
+                'clientes' => $clientes
+            ],200);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'code' => 500,
+                'message' => $th->getMessage()
+            ], 500);
+        }
     }
 
     public function save_cliente(Request $request){

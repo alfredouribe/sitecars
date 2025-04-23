@@ -6,28 +6,66 @@
             </div>
         </div>
 
-        <vue-good-table :columns="columns" :rows="clientes" :search-options="{ enabled: true, placeholder: 'Buscar...' }">
+        <vue-good-table
+        :columns="columns"
+        :rows="clientes"
+        :search-options="{ enabled: true, placeholder: 'Buscar...' }"
+        >
             <template slot="table-row" slot-scope="props">
+                <!-- Columna: Activo -->
                 <span v-if="props.column.field == 'activo'">
-                    <p class="text-success" v-if="props.row.activo">Activo</p>
-                    <p class="text-danger" v-else>Desactivado</p>
+                    <span class="badge bg-success" v-if="props.row.activo">Activo</span>
+                    <span class="badge bg-danger" v-else>Desactivado</span>
                 </span>
 
+                <!-- Columna: Suscripciones -->
+                <span v-else-if="props.column.field == 'suscripciones'">
+                    <span v-if="props.row.suscripciones && props.row.suscripciones.length" class="suscripciones">
+                        <span
+                            :class="{
+                            'badge bg-success text-capitalize': props.row.suscripciones[0].estado === 'activa',
+                            'badge bg-danger text-capitalize': props.row.suscripciones[0].estado !== 'activa'
+                            }"
+                        >
+                            {{ props.row.suscripciones[0].estado }}
+                        </span>
+
+                        <small class="text-muted mt-1">
+                            <i class="fa fa-calendar me-1"></i>
+                            {{ formatFecha(props.row.suscripciones[0].fecha_inicio) }} - {{ formatFecha(props.row.suscripciones[0].fecha_fin) }}
+                        </small>
+
+                    </span>
+                    <span v-else>
+                        <span class="badge bg-danger">Sin suscripción</span>
+                    </span>
+                </span>
+
+                <!-- Columna: Opciones -->
                 <span v-else-if="props.column.field == 'opciones'">
-                    <button type="button" class="btn btn-info" @click="get_cliente(props.row)"><i class="fa fa-pencil"></i> Editar</button><br><hr>
-                    <button type="button" class="btn btn-danger" v-if="props.row.activo" @click="cambiar_status_cliente(props.row.id, 0)">Desactivar</button>
-                    <button type="button" class="btn btn-success" v-else @click="cambiar_status_cliente(props.row.id, 1)">Activar</button>
+                    <button type="button" class="btn btn-info" @click="get_cliente(props.row)">
+                        <i class="fa fa-pencil"></i> Editar
+                    </button>
                     <br><hr>
-                    <a :href="'/detalle?id=' + props.row.id"  style="text-decoration: none;" class="btn btn-success">
+                    <button type="button" class="btn btn-danger" v-if="props.row.activo" @click="cambiar_status_cliente(props.row.id, 0)">
+                        Desactivar
+                    </button>
+                    <button type="button" class="btn btn-success" v-else @click="cambiar_status_cliente(props.row.id, 1)">
+                        Activar
+                    </button>
+                    <br><hr>
+                    <a :href="'/detalle?id=' + props.row.id" style="text-decoration: none;" class="btn btn-success">
                         <i class="fa fa-eye"></i> Detalle
                     </a>
                 </span>
 
+                <!-- Cualquier otra columna -->
                 <span v-else>
-                    {{props.formattedRow[props.column.field]}}
+                    {{ props.formattedRow[props.column.field] }}
                 </span>
             </template>
         </vue-good-table>
+
 
         <!-- Modal -->
         <div class="modal fade" id="modalForm" tabindex="-1" aria-labelledby="modalForm" aria-hidden="true">
@@ -132,6 +170,10 @@ export default {
                     field: 'email',
                 },
                 {
+                    label: "Suscripción",
+                    field: "suscripciones"
+                },
+                {
                     label: 'Estatus',
                     field: 'activo',
                 },
@@ -146,12 +188,15 @@ export default {
     },
     mounted() {
         this.get_clientes()
+        $.LoadingOverlay("hide");
     },
     methods: {
         get_clientes(){
+            $.LoadingOverlay("show");
             axios.get("api/get_clientes")
             .then( res => {
-                this.clientes = res.data
+                this.clientes = res.data.clientes
+                $.LoadingOverlay("hide");
             })
         },
         modalForm(){
@@ -223,9 +268,26 @@ export default {
                     })
                 }
             });
-
-            
-        }
+        },
+        formatFecha(fecha) {
+            if (!fecha) return 'Sin fecha';
+            const date = new Date(fecha);
+            const dia = String(date.getDate()).padStart(2, '0');
+            const mes = String(date.getMonth() + 1).padStart(2, '0');
+            const anio = date.getFullYear();
+            return `${dia}/${mes}/${anio}`;
+        },
+    },
+    beforeCreate() {
+        $.LoadingOverlay("show");
     }
 }
 </script>
+
+<style scoped>
+.suscripciones{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+</style>
